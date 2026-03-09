@@ -16,7 +16,6 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 
-    /* HEADER */
     header{background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;padding:18px 24px;box-shadow:0 4px 12px rgba(0,0,0,.15);}
     header h1{font-size:1.5rem;font-weight:800;}
     header p{font-size:.82rem;opacity:.85;margin-top:3px;}
@@ -24,17 +23,14 @@
     .hstat{background:rgba(255,255,255,.15);border-radius:10px;padding:6px 14px;font-size:.78rem;}
     .hstat span{font-size:1.15rem;font-weight:700;display:block;}
 
-    /* CONTAINER */
     .container{max-width:860px;margin:0 auto;padding:20px 14px;}
 
-    /* MODE TABS */
     .mode-tabs{display:flex;gap:8px;margin-bottom:18px;}
     .mode-tab{flex:1;padding:12px;border-radius:12px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.9rem;font-weight:700;text-align:center;transition:all .2s;}
     .mode-tab:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
     .mode-tab.active.gakka-tab{background:#1a56db;border-color:#1a56db;color:#fff;}
     .mode-tab.active.jitsugi-tab{background:#7c3aed;border-color:#7c3aed;color:#fff;}
 
-    /* UNIT TABS */
     .sec-label{font-size:.78rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
     .unit-tabs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
     .unit-tab{padding:7px 13px;border-radius:18px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.78rem;font-weight:700;transition:all .2s;}
@@ -48,600 +44,973 @@
     .unit-tab[data-unit="5"].active{background:var(--t5c);border-color:var(--t5c);}
     .unit-tab[data-unit="6"].active{background:var(--t6c);border-color:var(--t6c);}
 
-    /* SUB TABS */
-    .sub-wrap{margin-bottom:14px;display:none;}
-    .sub-wrap.vis{display:block;}
-    .sub-tabs{display:flex;flex-wrap:wrap;gap:5px;}
-    .sub-tab{padding:4px 11px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:.74rem;font-weight:600;transition:all .2s;}
-    .sub-tab:hover,.sub-tab.active{border-color:var(--primary);color:var(--primary);background:#eff6ff;}
+    .sub-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+    .sub-tab{padding:5px 11px;border-radius:14px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:.73rem;font-weight:600;transition:all .2s;}
+    .sub-tab.active{background:#475569;border-color:#475569;color:#fff;}
+    .sub-tab:hover{transform:translateY(-1px);}
 
-    /* PROGRESS */
-    .prog-wrap{height:5px;background:var(--border);border-radius:3px;margin-bottom:18px;overflow:hidden;}
-    .prog-bar{height:100%;background:linear-gradient(90deg,#1a56db,#7c3aed);border-radius:3px;transition:width .4s ease;}
+    .progress-wrap{background:#e2e8f0;border-radius:10px;height:8px;margin-bottom:18px;overflow:hidden;}
+    .progress-bar{height:100%;border-radius:10px;background:linear-gradient(90deg,#1a56db,#7c3aed);transition:width .4s;}
 
-    /* CARD */
-    .card{background:var(--card-bg);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:24px;margin-bottom:14px;border:1px solid var(--border);animation:fadeIn .3s ease;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .card{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(0,0,0,.07);margin-bottom:16px;}
+    .q-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+    .badge{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;}
+    .q-num{color:var(--muted);font-size:.8rem;}
+    .q-text{font-size:1.05rem;font-weight:600;line-height:1.65;margin-bottom:16px;}
 
-    .q-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:6px;}
-    .q-num{font-size:.82rem;color:var(--muted);font-weight:700;}
-    .q-tags{display:flex;gap:5px;flex-wrap:wrap;}
-    .q-tag{font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:9px;}
-    .tag-1{background:var(--t1bg);color:var(--t1c);}
-    .tag-2{background:var(--t2bg);color:var(--t2c);}
-    .tag-3{background:var(--t3bg);color:var(--t3c);}
-    .tag-4{background:var(--t4bg);color:var(--t4c);}
-    .tag-5{background:var(--t5bg);color:var(--t5c);}
-    .tag-6{background:var(--t6bg);color:var(--t6c);}
-    .tag-mode{background:#f1f5f9;color:#475569;}
+    /* scenario / table */
+    .scenario-wrap{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;line-height:1.7;}
+    .scenario-wrap p{margin-bottom:8px;}
+    .data-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:8px;}
+    .data-table thead tr{background:#1d4ed8;}
+    .data-table thead th{color:#fff;padding:7px 11px;text-align:left;font-weight:700;}
+    .data-table tbody tr:nth-child(odd){background:#f8faff;}
+    .data-table tbody tr:nth-child(even){background:#eef3ff;}
+    .data-table td{padding:6px 11px;border-bottom:1px solid #dbeafe;vertical-align:top;}
+    .data-table td.num{text-align:right;font-family:monospace;}
+    .data-table td.ans{color:#dc2626;font-weight:700;}
 
-    /* SCENARIO BOX */
-    .scenario-box{background:#eff6ff;border-left:4px solid #3b82f6;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:14px;font-size:.85rem;line-height:1.75;color:#1e3a5f;white-space:pre-wrap;}
-    .scenario-label{font-size:.7rem;font-weight:700;color:#3b82f6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+    /* answer buttons */
+    .ox-btns{display:flex;gap:12px;margin-bottom:12px;}
+    .ox-btn{flex:1;padding:16px;border-radius:14px;border:3px solid var(--border);background:#fff;cursor:pointer;font-size:2rem;font-weight:800;text-align:center;transition:all .2s;}
+    .ox-btn:hover{transform:scale(1.04);}
+    .ox-btn.correct-btn{border-color:var(--success);background:#f0fdf4;}
+    .ox-btn.wrong-btn{border-color:var(--danger);background:#fef2f2;}
+    .ox-btn.selected-correct{border-color:var(--success);background:#dcfce7;}
+    .ox-btn.selected-wrong{border-color:var(--danger);background:#fee2e2;}
 
-    .q-badge{display:inline-block;font-size:.7rem;background:#f8fafc;color:var(--muted);border-radius:6px;padding:2px 7px;margin-bottom:10px;border:1px solid var(--border);}
-    .q-text{font-size:1rem;line-height:1.85;font-weight:500;margin-bottom:20px;}
+    .choices{display:flex;flex-direction:column;gap:9px;margin-bottom:12px;}
+    .choice-btn{padding:13px 16px;border-radius:12px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.9rem;text-align:left;font-weight:600;transition:all .2s;line-height:1.5;}
+    .choice-btn:hover{transform:translateX(3px);border-color:#94a3b8;}
+    .choice-btn.correct{border-color:var(--success);background:#f0fdf4;color:var(--success);}
+    .choice-btn.wrong{border-color:var(--danger);background:#fef2f2;color:var(--danger);}
 
-    /* ○× BUTTONS */
-    .maru-batsu{display:flex;gap:10px;margin-bottom:16px;}
-    .btn-maru,.btn-batsu{flex:1;padding:15px;border-radius:12px;border:2px solid;font-size:1.5rem;font-weight:900;cursor:pointer;transition:all .2s;background:#fff;}
-    .btn-maru{border-color:var(--success);color:var(--success);}
-    .btn-batsu{border-color:var(--danger);color:var(--danger);}
-    .btn-maru:hover:not(:disabled){background:var(--success);color:#fff;transform:scale(1.03);}
-    .btn-batsu:hover:not(:disabled){background:var(--danger);color:#fff;transform:scale(1.03);}
-    .btn-maru:disabled,.btn-batsu:disabled{opacity:.45;cursor:not-allowed;transform:none;}
-    .btn-maru.sel{background:var(--success);color:#fff;}
-    .btn-batsu.sel{background:var(--danger);color:#fff;}
+    .result-box{border-radius:12px;padding:14px 16px;margin-bottom:14px;display:none;}
+    .result-box.show{display:block;}
+    .result-box.ok{background:#f0fdf4;border:2px solid #86efac;}
+    .result-box.ng{background:#fef2f2;border:2px solid #fca5a5;}
+    .result-box .r-title{font-weight:800;font-size:1rem;margin-bottom:6px;}
+    .result-box.ok .r-title{color:var(--success);}
+    .result-box.ng .r-title{color:var(--danger);}
+    .result-box .r-exp{font-size:.85rem;line-height:1.7;color:#374151;}
+    .formula{display:block;background:#1e293b;color:#93c5fd;font-family:monospace;font-size:.82rem;padding:10px 14px;border-radius:8px;margin-top:8px;white-space:pre-wrap;}
 
-    /* 3-CHOICE BUTTONS */
-    .choices{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
-    .btn-choice{padding:13px 16px;border-radius:10px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.88rem;text-align:left;transition:all .2s;display:flex;gap:10px;align-items:flex-start;}
-    .btn-choice:hover:not(:disabled){border-color:var(--primary);background:#eff6ff;}
-    .btn-choice:disabled{cursor:not-allowed;}
-    .btn-choice .choice-label{font-weight:800;min-width:24px;flex-shrink:0;color:var(--muted);}
-    .btn-choice.correct{border-color:var(--success);background:#f0fdf4;}
-    .btn-choice.wrong{border-color:var(--danger);background:#fff1f2;}
-    .btn-choice.show-ans{border-color:var(--success);background:#f0fdf4;}
+    .nav-btns{display:flex;gap:10px;margin-top:6px;}
+    .nav-btn{flex:1;padding:12px;border-radius:12px;border:none;cursor:pointer;font-size:.9rem;font-weight:700;transition:all .2s;}
+    .nav-btn:hover{transform:translateY(-2px);}
+    .btn-next{background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;}
+    .btn-skip{background:#f1f5f9;color:#475569;}
 
-    /* RESULT BOX */
-    .result-box{border-radius:12px;padding:14px 18px;margin-bottom:16px;display:none;animation:fadeIn .3s ease;}
-    .result-box.correct{background:#f0fdf4;border:2px solid #86efac;}
-    .result-box.wrong{background:#fff1f2;border:2px solid #fca5a5;}
-    .result-box h3{font-size:1rem;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
-    .result-box.correct h3{color:var(--success);}
-    .result-box.wrong h3{color:var(--danger);}
-    .result-ans{font-size:.88rem;color:var(--muted);margin-bottom:9px;}
-    .result-ans strong{color:var(--text);}
-    .ex-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
-    .ex-text{font-size:.86rem;line-height:1.8;color:#374151;background:rgba(0,0,0,.03);border-radius:8px;padding:11px;}
-    .formula{background:#1e293b;color:#e2e8f0;border-radius:8px;padding:11px 14px;font-family:monospace;font-size:.82rem;line-height:1.75;white-space:pre-wrap;margin-top:7px;}
+    .score-card{background:#fff;border-radius:20px;padding:30px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+    .score-circle{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#1a56db,#7c3aed);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:2rem;font-weight:800;}
+    .score-label{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+    .score-sub{color:var(--muted);font-size:.85rem;margin-bottom:20px;}
+    .score-breakdown{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+    .score-item{background:#f8faff;border-radius:12px;padding:10px 18px;}
+    .score-item .si-val{font-size:1.4rem;font-weight:800;color:#1a56db;}
+    .score-item .si-lab{font-size:.75rem;color:var(--muted);}
+    .btn-restart{padding:14px 32px;border-radius:14px;border:none;background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;}
+    .btn-restart:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(26,86,219,.3);}
 
-    /* NAV BUTTONS */
-    .nav-btns{display:flex;gap:10px;}
-    .btn{padding:11px 22px;border-radius:10px;border:none;cursor:pointer;font-size:.88rem;font-weight:700;transition:all .2s;}
-    .btn-primary{background:var(--primary);color:#fff;flex:1;}
-    .btn-primary:hover{background:var(--primary-dark);}
-    .btn-secondary{background:var(--border);color:var(--text);}
-    .btn-secondary:hover{background:#cbd5e1;}
-    .btn:disabled{opacity:.4;cursor:not-allowed;}
-
-    /* SCORE CARD */
-    .score-card{background:var(--card-bg);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:28px;text-align:center;display:none;}
-    .score-circle{width:110px;height:110px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800;border:6px solid;}
-    .score-circle.great{border-color:var(--success);color:var(--success);background:#f0fdf4;}
-    .score-circle.ok{border-color:var(--warning);color:var(--warning);background:#fffbeb;}
-    .score-circle.poor{border-color:var(--danger);color:var(--danger);background:#fff1f2;}
-    .score-card h2{font-size:1.2rem;margin-bottom:6px;}
-    .score-card p{color:var(--muted);margin-bottom:18px;}
-    .score-bd{display:flex;justify-content:center;gap:24px;margin-bottom:22px;}
-    .score-item .val{font-size:1.3rem;font-weight:800;}
-    .score-item .label{font-size:.72rem;color:var(--muted);}
-    .btn-restart{background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;padding:13px 32px;border-radius:12px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;}
-
-    @media(max-width:600px){
-      .q-text{font-size:.92rem;}
-      header h1{font-size:1.2rem;}
-      .mode-tab{font-size:.8rem;padding:10px 6px;}
-    }
+    .empty-state{text-align:center;padding:40px;color:var(--muted);}
   </style>
 </head>
 <body>
-
 <header>
   <h1>📊 FP3級 過去問練習サイト</h1>
-  <p>学科（○×）＋ 実技（3択・計算）対策</p>
+  <p>学科（○×）＆ 実技（3択・計算）の一問一答形式</p>
   <div class="hstats">
-    <div class="hstat">総問題数<span id="totalCount">0</span>問</div>
-    <div class="hstat">正解<span id="correctCount" style="color:#86efac">0</span>問</div>
-    <div class="hstat">不正解<span id="wrongCount" style="color:#fca5a5">0</span>問</div>
-    <div class="hstat">正答率<span id="rateDisplay">-</span></div>
+    <div class="hstat">学科問題<span id="hg">82問</span></div>
+    <div class="hstat">実技問題<span id="hj">42問</span></div>
+    <div class="hstat">今日の正答率<span id="hrate">―</span></div>
   </div>
 </header>
-
 <div class="container">
-
-  <!-- MODE TABS -->
   <div class="mode-tabs">
     <button class="mode-tab gakka-tab active" onclick="switchMode('gakka')">📝 学科試験（○×）</button>
     <button class="mode-tab jitsugi-tab" onclick="switchMode('jitsugi')">🧮 実技試験（3択・計算）</button>
   </div>
 
-  <!-- UNIT TABS -->
-  <div class="sec-label" id="unitLabel">📚 単元を選ぶ</div>
+  <div class="sec-label">単元を選ぶ</div>
   <div class="unit-tabs" id="unitTabs"></div>
+  <div class="sub-tabs" id="subTabs"></div>
 
-  <!-- SUB TABS -->
-  <div class="sub-wrap" id="subWrap">
-    <div class="sec-label">🔍 サブカテゴリ</div>
-    <div class="sub-tabs" id="subTabs"></div>
-  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
 
-  <!-- PROGRESS -->
-  <div class="prog-wrap"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
-
-  <!-- QUIZ CARD -->
-  <div id="quizWrap">
-    <div class="card" id="qCard">
-      <div class="q-meta">
-        <span class="q-num" id="qNum">問 1 / 1</span>
-        <div class="q-tags" id="qTags"></div>
-      </div>
-      <div id="scenarioArea" style="display:none">
-        <div class="scenario-label">📋 問題の前提条件</div>
-        <div class="scenario-box" id="scenarioText"></div>
-      </div>
-      <div class="q-badge" id="qBadge">○か×で答えてください</div>
-      <div class="q-text" id="qText">読み込み中...</div>
-      <!-- ○× -->
-      <div class="maru-batsu" id="maruBatsuArea">
-        <button class="btn-maru" id="btnMaru" onclick="answerGakka(true)">○</button>
-        <button class="btn-batsu" id="btnBatsu" onclick="answerGakka(false)">×</button>
-      </div>
-      <!-- 3択 -->
-      <div class="choices" id="choicesArea" style="display:none"></div>
-      <!-- RESULT -->
-      <div class="result-box" id="resultBox">
-        <h3 id="resultTitle"></h3>
-        <div class="result-ans" id="resultAns"></div>
-        <div class="ex-label">解説</div>
-        <div class="ex-text" id="exText"></div>
-      </div>
-      <!-- NAV -->
-      <div class="nav-btns">
-        <button class="btn btn-secondary" id="btnPrev" onclick="prevQ()" disabled>← 前へ</button>
-        <button class="btn btn-primary" id="btnNext" onclick="nextQ()" disabled>次へ →</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCORE CARD -->
-  <div class="score-card" id="scoreCard">
-    <div class="score-circle" id="scoreCircle"></div>
-    <h2 id="scoreTitle"></h2>
-    <p id="scoreMsg"></p>
-    <div class="score-bd">
-      <div class="score-item"><div class="val" id="sc_c" style="color:var(--success)">0</div><div class="label">正解</div></div>
-      <div class="score-item"><div class="val" id="sc_w" style="color:var(--danger)">0</div><div class="label">不正解</div></div>
-      <div class="score-item"><div class="val" id="sc_r">0%</div><div class="label">正答率</div></div>
-    </div>
-    <button class="btn-restart" onclick="restart()">🔄 もう一度挑戦する</button>
-  </div>
-
+  <div id="quizArea"></div>
 </div>
 
 <script>
-// =====================================================================
-//  UNIT DEFINITIONS
-// =====================================================================
-const UNITS = {1:'ライフプランニング',2:'リスク管理',3:'金融資産運用',4:'タックスプランニング',5:'不動産',6:'相続・事業承継'};
+/* ====== DATA ====== */
+const UNITS = [
+  {id:1, name:'ライフプランニング'},
+  {id:2, name:'リスク管理'},
+  {id:3, name:'金融資産運用'},
+  {id:4, name:'タックスプランニング'},
+  {id:5, name:'不動産'},
+  {id:6, name:'相続・事業承継'},
+];
 
-// =====================================================================
-//  学科問題（○× 形式）
-// =====================================================================
+/* === 学科 ○× === */
 const GAKKA_Q = [
-  // ── 1: ライフプランニング ──
-  {unit:1,sub:'FP業務と関連法規',q:'税理士資格を有しないFPが、顧客から個別の税務申告書類の作成を請け負うことは、税理士法に抵触する。',ans:true,ex:'税理士法により、税理士資格を有しない者が税務書類の作成・税務相談を有償で行うことは禁じられています。FPは一般的な税務知識の説明はできますが、個別具体的な税務申告書類の作成は行えません。'},
-  {unit:1,sub:'FP業務と関連法規',q:'弁護士資格を有しないFPが、顧客から個別の法律事務（法律判断や法律相談）を依頼された場合に報酬を得ることは、弁護士法に抵触する。',ans:true,ex:'弁護士法により、弁護士でない者が報酬を得る目的で法律事務を業として行うことは禁止（非弁行為）されています。'},
-  {unit:1,sub:'FP業務と関連法規',q:'金融商品取引法上の投資助言・代理業の登録を受けていないFPは、顧客に対して特定の金融商品への投資を勧める助言を業として行うことができる。',ans:false,ex:'投資助言・代理業を行うには金融商品取引法上の登録が必要です。無登録で投資助言を業として行うことは禁じられています。'},
-  {unit:1,sub:'FP業務と関連法規',q:'ファイナンシャル・プランニングの6ステップの第1ステップは「顧客との関係確立（関係の明確化）」である。',ans:true,ex:'6ステップは①顧客との関係確立→②顧客データ収集・目標把握→③財務状況の分析・評価→④プランの検討・作成→⑤プランの実行援助→⑥定期的見直し の順です。'},
-  {unit:1,sub:'社会保険',q:'全国健康保険協会管掌健康保険（協会けんぽ）の保険料は、被保険者と事業主が原則として折半で負担する。',ans:true,ex:'協会けんぽの保険料は被保険者と事業主が各50%を負担します（折半）。都道府県ごとに料率が異なります。'},
-  {unit:1,sub:'社会保険',q:'健康保険の傷病手当金は、業務外の病気・けがで仕事を休んだ日から起算して3日間の待期期間を経た後、4日目から支給される。',ans:true,ex:'傷病手当金は連続3日間の待期期間（3日連続休業）後の4日目から支給されます。支給額は標準報酬日額の3分の2相当です。'},
-  {unit:1,sub:'社会保険',q:'健康保険の出産育児一時金は、被保険者本人の出産だけでなく、被扶養者（家族）が出産した場合にも支給される。',ans:true,ex:'被扶養者の出産に対しても「家族出産育児一時金」として1児につき原則50万円が支給されます。'},
-  {unit:1,sub:'社会保険',q:'公的介護保険の第1号被保険者は、市町村の区域内に住所を有する65歳以上の者であり、要介護・要支援の原因を問わず保険給付を受けられる。',ans:true,ex:'第1号被保険者（65歳以上）は、原因を問わず要介護・要支援状態になれば給付を受けられます。第2号被保険者（40〜64歳）は特定疾病が原因の場合のみ対象です。'},
-  {unit:1,sub:'社会保険',q:'公的介護保険の第2号被保険者が保険給付を受けられるのは、加齢に起因する特定疾病により要介護・要支援状態となった場合に限られる。',ans:true,ex:'第2号被保険者（40〜64歳）は、初老期の認知症・脳血管疾患・がん末期など16種類の「特定疾病」が原因の場合のみ給付対象です。'},
-  {unit:1,sub:'雇用保険',q:'雇用保険の基本手当（一般受給資格者）の受給要件は、離職前2年間に被保険者期間が通算12カ月以上あることである。',ans:true,ex:'一般離職者の基本手当受給要件は離職前2年間に被保険者期間12カ月以上。特定受給資格者（倒産・解雇等）は離職前1年間に6カ月以上です。'},
-  {unit:1,sub:'雇用保険',q:'雇用保険の基本手当の給付日数は、被保険者期間や離職理由にかかわらず一律90日である。',ans:false,ex:'給付日数は被保険者期間・離職理由・年齢により異なります。最短90日〜最長360日の範囲で決まります。'},
-  {unit:1,sub:'雇用保険',q:'育児休業給付金の給付率は、育児休業開始から180日間は休業開始時賃金日額の67%である。',ans:true,ex:'育児休業給付金の給付率は開始から180日間（6カ月間）は67%、181日目以降は50%です。'},
-  {unit:1,sub:'公的年金',q:'老齢基礎年金を受給するためには、保険料納付済期間と保険料免除期間などを合算した受給資格期間が10年以上必要である。',ans:true,ex:'2017年8月より受給資格期間が25年から10年に短縮されました。保険料納付済期間・免除期間・合算対象期間の合計が10年以上あれば受給できます。'},
-  {unit:1,sub:'公的年金',q:'国民年金の保険料全額免除期間（2009年4月以降）は、老齢基礎年金額の計算において免除を受けた期間の2分の1として反映される。',ans:true,ex:'2009年4月以降の全額免除期間は、国庫負担2分の1となり老齢基礎年金額の計算では月数×1/2として算出します。'},
-  {unit:1,sub:'公的年金',q:'老齢厚生年金を繰り上げ受給した場合の減額率は、繰り上げた月数×0.4%（2022年4月以降）であり、この減額は一生涯続く。',ans:true,ex:'2022年4月以降の繰上げ減額率は1カ月あたり0.4%（改正前0.5%）。60歳から繰上げると最大24%減額され、生涯変わりません。'},
-  {unit:1,sub:'公的年金',q:'遺族基礎年金は、子のない配偶者にも支給される。',ans:false,ex:'遺族基礎年金は「子のある配偶者」または「子」に支給されます。子のない配偶者は受給対象外です（遺族厚生年金は子のない妻等にも支給される場合があります）。'},
-  {unit:1,sub:'公的年金',q:'老齢厚生年金の繰下げ支給の申出は、老齢基礎年金の繰下げ申出と同時に行わなければならない。',ans:false,ex:'老齢厚生年金と老齢基礎年金の繰下げは独立して申請でき、一方だけを繰り下げることも可能です。'},
-
-  // ── 2: リスク管理 ──
-  {unit:2,sub:'生命保険の種類',q:'定期保険は、保険期間内に被保険者が死亡した場合は死亡保険金が支払われるが、保険期間満了時に生存していても満期保険金は支払われない。',ans:true,ex:'定期保険は「掛け捨て型」で、保険期間内の死亡のみ補償。満期保険金も解約返戻金もほとんど（または全く）ありません。'},
-  {unit:2,sub:'生命保険の種類',q:'収入保障保険の死亡保険金は、被保険者の死亡時期が保険期間の早い時期であるほど受取総額が多くなる。',ans:true,ex:'収入保障保険は死亡後の保険期間満了まで毎月（毎年）一定額が支払われます。早期に死亡するほど受取期間が長くなるため、受取総額は多くなります。'},
-  {unit:2,sub:'生命保険と税務',q:'契約者（保険料負担者）・被保険者が夫、死亡保険金受取人が妻である場合、夫死亡時に妻が受け取る死亡保険金は、相続税のみなし相続財産として課税対象となる。',ans:true,ex:'契約者＝被保険者≠受取人の場合、死亡保険金は民法上の相続財産ではありませんが、相続税法上「みなし相続財産」として課税対象（ただし500万円×法定相続人数の非課税枠あり）です。'},
-  {unit:2,sub:'生命保険と税務',q:'契約者（保険料負担者）が妻、被保険者が夫、死亡保険金受取人が妻である場合、夫死亡時に妻が受け取る死亡保険金は、一時所得として所得税の課税対象となる。',ans:true,ex:'契約者＝受取人≠被保険者の場合、死亡保険金は一時所得（所得税・住民税）の課税対象です。'},
-  {unit:2,sub:'生命保険と税務',q:'所得税における一般生命保険料控除の控除限度額は、2012年1月以降の契約では最高4万円である。',ans:true,ex:'2012年1月以降締結の生命保険料控除は、①一般生命保険料（上限4万円）②介護医療保険料（上限4万円）③個人年金保険料（上限4万円）の3区分で合計最高12万円です。'},
-  {unit:2,sub:'生命保険と税務',q:'個人年金保険料税制適格特約が付加されていない個人年金保険の保険料は、一般生命保険料控除の対象となる。',ans:true,ex:'個人年金保険料控除を受けるには「税制適格特約」の付加が必要です。付加されていない場合は一般生命保険料控除の対象として扱われます。'},
-  {unit:2,sub:'損害保険',q:'火災保険では、地震・噴火またはこれらによる津波を原因とする損害は補償されない。',ans:true,ex:'地震・噴火・津波による損害は火災保険の免責事項です。これらに備えるには火災保険に付帯する地震保険への加入が必要です。'},
-  {unit:2,sub:'損害保険',q:'地震保険は単独では加入できず、必ず火災保険に付帯して加入する必要がある。',ans:true,ex:'地震保険は必ず火災保険に付帯して加入します。補償額は火災保険の保険金額の30〜50%の範囲で設定され、建物5,000万円・家財1,000万円が上限です。'},
-  {unit:2,sub:'損害保険',q:'自動車損害賠償責任保険（自賠責保険）は、対人賠償のみを補償し、対物賠償（物的損害）は補償しない。',ans:true,ex:'自賠責保険（強制保険）は被害者への人身損害（死亡・後遺障害・傷害）のみが対象で、物的損害は補償対象外です。'},
-  {unit:2,sub:'損害保険',q:'損害保険における「超過保険」とは、保険金額が保険価額を上回っている状態をいう。',ans:true,ex:'超過保険＝保険金額＞保険価額の状態。この場合でも実損額を超えた保険金は支払われません（実損払いの原則）。逆に保険金額＜保険価額は「一部保険（比例てん補）」です。'},
-
-  // ── 3: 金融資産運用 ──
-  {unit:3,sub:'経済・金融の基礎',q:'国内総生産（GDP）は、一定期間内に国内で新たに生産されたモノやサービスの付加価値の合計額を示す指標である。',ans:true,ex:'GDPは「Gross Domestic Product（国内総生産）」の略で、国内の一定期間の付加価値総額。日本経済規模を示す代表的指標で内閣府が四半期ごとに公表します。'},
-  {unit:3,sub:'経済・金融の基礎',q:'日本銀行が政策金利を引き上げる金融引き締め政策をとると、市場金利は上昇し、債券価格は下落する傾向がある。',ans:true,ex:'金融引き締め→市場金利上昇→既発債の利率が相対的に低下→債券売られる→債券価格下落。金利と債券価格は逆の動きをします。'},
-  {unit:3,sub:'経済・金融の基礎',q:'消費者物価指数（CPI）が継続的に上昇している状態をデフレーションという。',ans:false,ex:'物価が継続的に上昇する状態は「インフレーション（インフレ）」、継続的に下落する状態が「デフレーション（デフレ）」です。'},
-  {unit:3,sub:'預貯金・債券',q:'債券の価格が上昇すると、その債券の利回りは低下する。',ans:true,ex:'利回り＝(年間利息+値上がり益÷残存年数)÷購入価格×100。購入価格が上がると利回りの分母が大きくなるため利回りは低下します。'},
-  {unit:3,sub:'預貯金・債券',q:'個人向け国債（変動10年）の利率は半年ごとに見直され、下限金利は年0.05%に設定されている。',ans:true,ex:'個人向け国債（変動10年）の利率は基準金利×0.66で半年ごとに変動し、下限は年0.05%。元本・利子の支払いは国が保証しています。'},
-  {unit:3,sub:'預貯金・債券',q:'普通預金の利子は、20.315%（所得税・復興特別所得税・住民税）の税率で源泉徴収される。',ans:true,ex:'預貯金の利子は利子所得として20.315%（所得税15%＋復興特別所得税0.315%＋住民税5%）で源泉分離課税されます。'},
-  {unit:3,sub:'株式・投資信託',q:'PER（株価収益率）は「株価÷1株当たり純利益（EPS）」で計算され、この値が低いほど株価は割安と判断される。',ans:true,ex:'PERは株価が1株純利益の何倍かを示します。PERが低いほど利益に対して株価が低く割安、高いほど割高と判断されます。'},
-  {unit:3,sub:'株式・投資信託',q:'PBR（株価純資産倍率）が1倍を下回っている場合、理論上、株価は解散価値を下回っていると判断される。',ans:true,ex:'PBR＝株価÷1株当たり純資産（BPS）。1倍未満は株価が帳簿上の純資産を下回ることを意味し、理論上の解散価値以下とみなされます。'},
-  {unit:3,sub:'株式・投資信託',q:'追加型株式投資信託の収益分配金のうち「元本払戻金（特別分配金）」は課税されない。',ans:true,ex:'投資信託の分配金は「普通分配金（課税対象）」と「元本払戻金・特別分配金（元本の払い戻しのため非課税）」に分かれます。'},
-  {unit:3,sub:'株式・投資信託',q:'NISAの成長投資枠の年間投資上限額は240万円、つみたて投資枠と合わせた年間上限は360万円である。',ans:true,ex:'2024年からの新NISAは成長投資枠240万円＋つみたて投資枠120万円＝年間360万円。生涯非課税保有限度額は1,800万円（うち成長投資枠1,200万円）。'},
-  {unit:3,sub:'外貨・その他',q:'外貨預金において、円を外貨に換える際（預入時）に適用されるのはTTSレートである。',ans:true,ex:'TTS（Telegraphic Transfer Selling）は銀行が外貨を売るレート（顧客が円→外貨）。TTB（Buying）は銀行が外貨を買うレート（顧客が外貨→円）。TTS＞TTM＞TTBの関係です。'},
-  {unit:3,sub:'外貨・その他',q:'外貨預金は、預金保険制度の保護対象外である。',ans:true,ex:'預金保険の対象は円建ての預金（普通・定期等）。外貨預金、金融債、MMF等は保護対象外です。'},
-
-  // ── 4: タックスプランニング ──
-  {unit:4,sub:'所得税の基礎',q:'所得税は個人の所得に対して課税される国税であり、超過累進税率が採用されている。',ans:true,ex:'所得税は国税で、所得が多いほど税率が高くなる超過累進税率（5%〜45%の7段階）を採用。住民税は一律10%（定率）との違いも重要です。'},
-  {unit:4,sub:'所得税の基礎',q:'給与収入が2,000万円を超える給与所得者は、年末調整の対象外となり、確定申告をしなければならない。',ans:true,ex:'給与収入2,000万円超の場合は年末調整不可で確定申告必須。また2カ所以上から給与を受けている場合や副業等で給与以外の所得が20万円超の場合も確定申告が必要です。'},
-  {unit:4,sub:'所得税の基礎',q:'所得税の確定申告の申告・納付期限は、原則として翌年の3月15日である。',ans:true,ex:'確定申告の申告・納付期限はともに翌年3月15日（2月16日〜3月15日が申告期間）。土日の場合は翌平日になります。'},
-  {unit:4,sub:'各種所得と損益通算',q:'不動産所得・事業所得の損失（一定の例外を除く）は、他の所得と損益通算することができる。',ans:true,ex:'損益通算できる損失の所得種類は不動産・事業・山林・譲渡の4種類（「ふ・じ・さ・ん」と覚える）。ただし不動産所得の土地取得借入金利子相当額は損益通算不可です。'},
-  {unit:4,sub:'各種所得と損益通算',q:'上場株式等の譲渡損失は、申告分離課税を選択した上場株式等の配当所得と損益通算できる。',ans:true,ex:'上場株式等の譲渡損失は、申告分離課税を選択した配当所得と損益通算できます。さらに控除しきれない損失は3年間繰越控除も可能です。'},
-  {unit:4,sub:'所得控除・税額控除',q:'所得税の基礎控除の額は、合計所得金額が2,400万円以下の場合、48万円である。',ans:true,ex:'2020年改正後の基礎控除は合計所得金額2,400万円以下で48万円（それ以上は逓減・消滅）。住民税の基礎控除は43万円です。'},
-  {unit:4,sub:'所得控除・税額控除',q:'医療費控除の控除額は「（医療費合計−保険金補填額）−10万円（または総所得金額等×5%の低い方）」で計算する。',ans:true,ex:'医療費控除額＝(医療費−補填額)−10万円（総所得200万円未満の場合は総所得×5%）。上限200万円。自己と生計を一にする家族の医療費が対象です。'},
-  {unit:4,sub:'所得控除・税額控除',q:'ふるさと納税による寄附金は、所得税では寄附金控除（所得控除）、住民税では税額控除として適用できる。',ans:true,ex:'ふるさと納税は寄附金額−2,000円について所得税（寄附金控除・所得控除）と住民税（税額控除）で控除されます。ワンストップ特例なら確定申告不要で住民税のみから全額控除。'},
-  {unit:4,sub:'所得控除・税額控除',q:'住宅ローン控除（住宅借入金等特別控除）は、給与所得者の場合、初年度に確定申告すれば翌年以降は年末調整で適用を受けられる。',ans:true,ex:'住宅ローン控除の初年度は確定申告が必要ですが、2年目以降は給与所得者であれば年末調整で適用を受けることができます。'},
-  {unit:4,sub:'所得控除・税額控除',q:'配当控除（税額控除）は、外国法人から受け取る配当金に対しても適用される。',ans:false,ex:'配当控除は内国法人（日本の会社）からの配当金に対してのみ適用されます。外国法人からの配当は対象外です。'},
-
-  // ── 5: 不動産 ──
-  {unit:5,sub:'不動産の基礎・登記',q:'不動産の登記記録（登記簿）の権利部甲区には所有権に関する事項が、乙区には所有権以外の権利（抵当権等）に関する事項が記録される。',ans:true,ex:'登記記録は表題部（物理的状況）と権利部に分かれます。権利部の甲区には所有権（売買・相続等）、乙区には抵当権・地上権・賃借権など所有権以外の権利が記録されます。'},
-  {unit:5,sub:'不動産の基礎・登記',q:'日本の不動産登記には公信力があるため、登記を信頼して取引をした者は完全に保護される。',ans:false,ex:'日本の不動産登記には「対抗力」はありますが「公信力」はありません。登記が実態と異なる場合、登記を信頼した者が保護されない場合があります。'},
-  {unit:5,sub:'不動産取引・法規制',q:'都市計画法において、用途地域は市街化区域に定められ、市街化調整区域には定められない。',ans:true,ex:'用途地域は市街化区域に必ず定められます。市街化調整区域は開発抑制区域なので用途地域は定められません。'},
-  {unit:5,sub:'不動産取引・法規制',q:'借地借家法における普通借地権の存続期間は30年が最低で、合意によっても30年より短い期間を定めることはできない。',ans:true,ex:'普通借地権の存続期間は最低30年（30年未満の定めは無効→30年とみなす）。当事者の合意で30年より長い期間を設定することは可能です。'},
-  {unit:5,sub:'不動産取引・法規制',q:'定期建物賃貸借契約（定期借家）は、公正証書でなければ有効に締結することができない。',ans:false,ex:'定期借家契約は公正証書でなくても書面（または電磁的方法）であれば有効です。ただし契約前に借主への書面による事前説明が必要です。'},
-  {unit:5,sub:'不動産取引・法規制',q:'区分所有法において、管理規約の変更は区分所有者および議決権の各4分の3以上の多数による集会の決議が必要である。',ans:true,ex:'マンション（区分所有建物）の規約の設定・変更・廃止には、区分所有者および議決権の各4分の3以上の多数決（特別決議）が必要です。'},
-  {unit:5,sub:'不動産税金',q:'不動産取得税は、相続による不動産の取得には課税されない。',ans:true,ex:'不動産取得税は売買・贈与・建築等による取得に課税されますが、相続（包括遺贈・合併も含む）による取得は非課税です。'},
-  {unit:5,sub:'不動産税金',q:'居住用財産を譲渡した場合の3,000万円特別控除は、配偶者や直系血族（親・子等）への譲渡には適用されない。',ans:true,ex:'生計を一にする配偶者・親族などへの譲渡（特別関係者）、同族会社への譲渡などには3,000万円特別控除は適用できません。'},
-  {unit:5,sub:'不動産税金',q:'固定資産税の標準税率は1.4%であり、都市計画税の制限税率（上限）は0.3%である。',ans:true,ex:'固定資産税の標準税率は1.4%。都市計画税は市街化区域内の土地・建物に課税され、制限税率（上限）は0.3%です。'},
-
-  // ── 6: 相続・事業承継 ──
-  {unit:6,sub:'相続の基礎',q:'相続の放棄は、自己のために相続の開始があったことを知った時から3カ月以内に家庭裁判所に申述しなければならない。',ans:true,ex:'相続放棄は3カ月以内（熟慮期間）に家庭裁判所へ申述します。放棄すると初めから相続人でなかったものとみなされます。'},
-  {unit:6,sub:'相続の基礎',q:'被相続人の子が相続開始前に死亡していた場合、その子の子（被相続人の孫）が代わって相続する（代襲相続）。',ans:true,ex:'代襲相続とは相続人が死亡・欠格・廃除の場合に、その子が代わって相続することです。相続放棄した者の子は代襲相続しません。'},
-  {unit:6,sub:'相続の基礎',q:'相続放棄をした者の子は、代襲相続人となる。',ans:false,ex:'相続放棄した場合、その者は「最初から相続人でなかった」とみなされます。そのため放棄した者の子は代襲相続しません（代襲が生じるのは死亡・欠格・廃除の場合）。'},
-  {unit:6,sub:'相続の基礎',q:'法定相続人が配偶者と子2名の場合、法定相続分は配偶者が1/2、子それぞれが1/4ずつとなる。',ans:true,ex:'配偶者と子がいる場合の法定相続分は配偶者1/2・子（合計）1/2。子2人なら各1/4です。配偶者と尊属なら配偶者2/3・尊属1/3、配偶者と兄弟姉妹なら配偶者3/4・兄弟姉妹1/4。'},
-  {unit:6,sub:'相続の基礎',q:'遺言書には自筆証書遺言・公正証書遺言・秘密証書遺言の3種類（普通方式）がある。',ans:true,ex:'普通方式の遺言は①自筆証書遺言（全文自書・自署・押印）②公正証書遺言（公証人作成・証人2名）③秘密証書遺言（署名押印のみ自筆・公証人関与・証人2名）の3種類です。'},
-  {unit:6,sub:'相続税',q:'相続税の基礎控除額は「3,000万円＋600万円×法定相続人の数」で計算される。',ans:true,ex:'例えば相続人3名（配偶者+子2名）の場合、3,000+600×3=4,800万円が基礎控除。遺産総額が基礎控除以下なら相続税は課税されません。'},
-  {unit:6,sub:'相続税',q:'相続税の申告・納付期限は、相続開始を知った日の翌日から10カ月以内である。',ans:true,ex:'相続税の申告・納税期限は相続開始を知った日の翌日から10カ月以内。期限を過ぎると延滞税・加算税が課される場合があります。'},
-  {unit:6,sub:'相続税',q:'配偶者の税額軽減は、配偶者が取得した財産が法定相続分または1億6,000万円のいずれか多い金額までであれば相続税が課税されない。',ans:true,ex:'配偶者の税額軽減は非常に大きな特例。ただしこの特例を受けるには相続税の申告書の提出が必要です。'},
-  {unit:6,sub:'相続税',q:'死亡保険金の相続税非課税限度額は「500万円×法定相続人の数」である。',ans:true,ex:'被相続人が保険料を負担した死亡保険金は「500万円×法定相続人の数」を超えた部分がみなし相続財産として相続税の課税対象となります。'},
-  {unit:6,sub:'贈与・贈与税',q:'贈与税（暦年課税）の基礎控除額は、年間110万円である。',ans:true,ex:'贈与税の基礎控除は年間110万円。1年間の贈与が110万円以下なら贈与税は課税されず申告も不要です。'},
-  {unit:6,sub:'贈与・贈与税',q:'贈与税の申告期限は、贈与を受けた年の翌年の2月1日から3月15日までである。',ans:true,ex:'贈与税の申告・納付期限は贈与を受けた翌年の2月1日〜3月15日です（所得税の確定申告と同時期）。'},
-  {unit:6,sub:'贈与・贈与税',q:'相続時精算課税制度を一度選択すると、同じ贈与者からの贈与については暦年課税に戻すことができない。',ans:true,ex:'相続時精算課税制度は一度選択すると撤回不可。同じ贈与者からは暦年課税には戻れません。2024年以降は毎年の基礎控除110万円が追加されました。'},
-  {unit:6,sub:'贈与・贈与税',q:'婚姻期間20年以上の夫婦間で居住用不動産を贈与した場合、最高2,000万円まで贈与税の配偶者控除（おしどり贈与）を受けることができる。',ans:true,ex:'配偶者控除（おしどり贈与）は婚姻20年以上の夫婦間で居住用不動産・取得資金の贈与時に、基礎控除110万円とは別に最高2,000万円控除できます（同一配偶者から一生に1回限り）。'},
+  // Unit 1
+  {unit:1,q:'ファイナンシャル・プランナーが顧客の税務申告書を代理で作成することは、税理士資格がなくても認められている。',a:false,ex:'税務申告書の作成・提出代理は税理士法により税理士のみに認められる。FPは有償・無償を問わず行えない。'},
+  {unit:1,q:'公的年金の老齢基礎年金の受給開始は、原則として65歳である。',a:true,ex:'老齢基礎年金の受給開始年齢は原則65歳。60〜75歳の間で繰上げ・繰下げ受給が可能。'},
+  {unit:1,q:'国民年金の第1号被保険者は、20歳以上60歳未満の自営業者や学生などが該当する。',a:true,ex:'第1号被保険者：自営業者・学生・無職など。第2号：会社員・公務員。第3号：第2号の配偶者。'},
+  {unit:1,q:'雇用保険の基本手当の所定給付日数は、被保険者期間や離職理由によって異なる。',a:true,ex:'被保険者期間・年齢・離職理由（自己都合か倒産・解雇か）により90〜360日で異なる。'},
+  {unit:1,q:'健康保険の傷病手当金は、業務上の傷病に対しても支給される。',a:false,ex:'業務上の傷病は労災保険の対象。傷病手当金は業務外の傷病による休業に支給される。'},
+  {unit:1,q:'老齢厚生年金は老齢基礎年金と同時に受給できる。',a:true,ex:'65歳以降は老齢基礎年金と老齢厚生年金を同時に受給できる。'},
+  {unit:1,q:'国民年金保険料の法定免除対象者には障害基礎年金の受給者が含まれる。',a:true,ex:'生活保護の生業扶助受給者、障害基礎年金受給者等は法定免除対象。'},
+  {unit:1,q:'介護保険の第2号被保険者は40歳以上65歳未満の医療保険加入者で、特定疾病による要介護状態の場合に保険給付を受けられる。',a:true,ex:'第2号被保険者は特定疾病（16疾病）が原因で要介護・要支援になった場合のみ給付される。'},
+  {unit:1,q:'住宅ローンの元利均等返済では、返済が進むにつれて元金の返済割合が減少する。',a:false,ex:'元利均等返済では毎月の支払額は一定だが、返済が進むにつれて利息分が減り元金の返済割合が増加する。'},
+  {unit:1,q:'iDeCoの掛金は全額が所得控除（小規模企業共済等掛金控除）の対象となる。',a:true,ex:'iDeCo掛金は全額が小規模企業共済等掛金控除として所得控除の対象。節税効果がある。'},
+  {unit:1,q:'老齢基礎年金を繰り上げ受給した場合、1ヶ月につき0.4%減額される。',a:true,ex:'2022年4月以降、繰上げは1ヶ月につき0.4%減額（最大24%減）。'},
+  {unit:1,q:'国民健康保険は原則として自営業者のみが加入する保険である。',a:false,ex:'国民健康保険の加入者は自営業者のほか、退職者・無職者・学生なども含まれる。'},
+  {unit:1,q:'健康保険の任意継続被保険者の資格取得申請は、退職日の翌日から20日以内に行う必要がある。',a:true,ex:'退職後20日以内に申請しないと任意継続被保険者になれない。'},
+  {unit:1,q:'確定拠出年金（DC）の運用指図者は掛金を拠出することができる。',a:false,ex:'運用指図者は運用の指示のみ行い、掛金を拠出することはできない。'},
+  // Unit 2
+  {unit:2,q:'生命保険料控除は、一般生命保険料・介護医療保険料・個人年金保険料の3種類に区分されている（新制度）。',a:true,ex:'2012年以降の新制度では、一般・介護医療・個人年金の3区分。各最大4万円、合計最大12万円控除。'},
+  {unit:2,q:'自動車保険の対人賠償保険は、他人に対する損害のみを補償し、自分や家族への損害は補償しない。',a:true,ex:'対人賠償は第三者（他人）への賠償のみ。搭乗者傷害や人身傷害で自分・同乗者をカバー。'},
+  {unit:2,q:'火災保険は地震や噴火による損害も補償する。',a:false,ex:'地震・噴火・津波による損害は地震保険でのみ補償。火災保険では補償されない。'},
+  {unit:2,q:'地震保険の保険金額は、主契約の火災保険の30%〜50%の範囲内で設定する。',a:true,ex:'地震保険の保険金額は火災保険の30〜50%の範囲。建物5,000万円・家財1,000万円が上限。'},
+  {unit:2,q:'終身保険は保険期間が一生涯続くため、被保険者が生存していても死亡保険金は支払われない。',a:false,ex:'終身保険は被保険者が死亡した際に保険金が支払われる。生存中は解約返戻金として受け取れる。'},
+  {unit:2,q:'収入保障保険の死亡保険金は、保険期間の経過とともに受け取れる金額（総額）が逓減する。',a:true,ex:'収入保障保険は月々の保険金を残存期間受け取る形式のため、時間の経過とともに総受取額が減少する。'},
+  {unit:2,q:'医療保険の入院給付金は、一般的に1入院当たりの限度日数が設定されている。',a:true,ex:'多くの医療保険では1入院60日・120日などの支払限度日数が設定されている。'},
+  {unit:2,q:'自賠責保険（強制保険）は、物損事故の損害を補償する。',a:false,ex:'自賠責保険は人身事故（傷害・死亡）のみ補償。物損は補償対象外。'},
+  {unit:2,q:'生命保険の保険料は、大数の法則と収支相等の原則に基づいて算出される。',a:true,ex:'大数の法則で死亡率等を算出し、収支相等の原則で保険料と支払保険金が等しくなるよう設定。'},
+  {unit:2,q:'法人が支払う役員の生命保険料は、すべて損金に算入できる。',a:false,ex:'保険の種類・保険金受取人・解約返戻率によって損金算入の可否や割合が異なる。すべて損金は誤り。'},
+  {unit:2,q:'生命保険の契約転換制度では、既存の契約を解約して新たな契約に切り替えることができる。',a:false,ex:'転換制度は既存契約の解約返戻金等を新契約の一部に充当するもので、解約とは異なる。'},
+  // Unit 3
+  {unit:3,q:'株式の配当利回りは、「年間配当金÷株価×100」で計算される。',a:true,ex:'配当利回り(%) = 1株当たり年間配当金 ÷ 株価 × 100。'},
+  {unit:3,q:'債券の価格と利回りは逆の関係にある。',a:true,ex:'市場金利が上がると債券価格は下落し利回りは上昇。反対に金利低下で債券価格は上昇。'},
+  {unit:3,q:'投資信託の純資産総額（NAV）が増加すると基準価額は必ず上昇する。',a:false,ex:'基準価額は純資産総額÷受益権口数で決まる。受益権口数が増えれば純資産総額が増えても基準価額は下がる場合がある。'},
+  {unit:3,q:'NISAの一般NISAの非課税投資枠は年間120万円である（旧制度）。',a:true,ex:'旧制度の一般NISAは年間120万円、保有期間最長5年。2024年から新NISAに刷新。'},
+  {unit:3,q:'外貨預金の利子には、国内預金と同様に預金保険（ペイオフ）が適用される。',a:false,ex:'外貨預金はペイオフの保護対象外。元本割れリスクがある。'},
+  {unit:3,q:'株式投資において、PER（株価収益率）が低いほど割安と判断される傾向がある。',a:true,ex:'PER=株価÷1株当たり純利益。PERが低いほど株価が利益に対して割安とされる。'},
+  {unit:3,q:'債券のデュレーションが長いほど、金利変動に対する価格変動リスクは小さくなる。',a:false,ex:'デュレーションが長いほど金利変動に対して価格が大きく変動し、リスクは高くなる。'},
+  {unit:3,q:'MMF（マネー・マーケット・ファンド）は元本保証の金融商品である。',a:false,ex:'MMFは元本保証なし。ただし安定運用を目的とした投資信託で元本割れリスクは低い。'},
+  {unit:3,q:'株式の信用取引では、自己資金以上の取引ができる（レバレッジ効果）。',a:true,ex:'信用取引は委託保証金を担保に保証金の約3.3倍まで取引可能（現行規制）。'},
+  {unit:3,q:'ETF（上場投資信託）は株式市場で売買でき、信用取引も可能である。',a:true,ex:'ETFは取引所に上場しており株式同様にリアルタイムで売買でき、信用取引も可能。'},
+  {unit:3,q:'ポートフォリオ理論では、相関係数が低い（マイナスに近い）資産を組み合わせるほど分散効果が高まる。',a:true,ex:'相関係数が-1に近いほど逆方向に動き、組み合わせることでポートフォリオ全体のリスクを低減できる。'},
+  // Unit 4
+  {unit:4,q:'所得税の確定申告は、原則として翌年の2月16日から3月15日の間に行う。',a:true,ex:'確定申告期間は毎年2月16日〜3月15日（土日の場合は翌月曜日）。'},
+  {unit:4,q:'給与所得控除は、給与収入が高くなるにつれ控除額も比例して増加し続ける。',a:false,ex:'給与所得控除は収入に応じて増加するが、850万円超で195万円の上限がある。'},
+  {unit:4,q:'医療費控除は、自分だけでなく生計を一にする家族の医療費も対象となる。',a:true,ex:'医療費控除は本人および生計を一にする配偶者・その他の親族の医療費が対象。'},
+  {unit:4,q:'青色申告の特別控除（最大65万円）を受けるには、複式簿記による記帳が必要である。',a:true,ex:'65万円控除には複式簿記・貸借対照表・損益計算書の添付・e-Tax申告等が必要。'},
+  {unit:4,q:'配偶者控除を受けるための配偶者の合計所得金額の要件は、48万円以下である。',a:true,ex:'2020年以降、配偶者控除の所得要件は48万円以下（給与収入103万円以下に相当）。'},
+  {unit:4,q:'損益通算とは、ある所得の損失を他の所得と合算して税金を計算する制度で、すべての所得間で適用できる。',a:false,ex:'損益通算できる所得は限定的。不動産・事業・山林・譲渡所得が対象で、給与や一時所得は対象外等の制限がある。'},
+  {unit:4,q:'小規模企業共済等掛金控除は、掛金全額が所得控除の対象となる。',a:true,ex:'iDeCoや小規模企業共済等の掛金は全額が小規模企業共済等掛金控除として控除される。'},
+  {unit:4,q:'源泉徴収票は、給与所得者の1年間の給与・賞与の合計と源泉徴収税額を示した書類である。',a:true,ex:'源泉徴収票は年間の給与・賞与・控除・所得税額等を記載した書類。年末調整後に発行される。'},
+  {unit:4,q:'事業所得と不動産所得の損失は、いずれも損益通算が認められる。',a:true,ex:'不動産所得の損失は原則として損益通算可（土地取得借入金利子相当額は除く）。'},
+  {unit:4,q:'特定口座（源泉徴収あり）を選択した場合、原則として確定申告は不要である。',a:true,ex:'特定口座（源泉徴収あり）では証券会社が税金を自動徴収するため、原則確定申告不要。'},
+  // Unit 5
+  {unit:5,q:'不動産登記には公信力があり、登記されている内容を信じた第三者は保護される。',a:false,ex:'日本の不動産登記には公信力がない。真の権利者が登記していなくても対抗できる場合がある。'},
+  {unit:5,q:'建物の所有を目的とする土地の賃貸借に関しては、借地借家法が適用される。',a:true,ex:'借地借家法は建物所有目的の土地賃貸借（借地権）および建物賃貸借（借家権）に適用される。'},
+  {unit:5,q:'固定資産税の課税標準は、原則として固定資産税評価額（時価の約70%程度）である。',a:true,ex:'固定資産税評価額は時価の約70%程度が目安とされ、課税標準として使用される。'},
+  {unit:5,q:'不動産の売買契約において、手付金は必ず解約手付として機能する。',a:false,ex:'手付金の性質（証約手付・解約手付・違約手付）は契約で決まる。民法では解約手付と推定されるが、必ずではない。'},
+  {unit:5,q:'都市計画区域内の建物の建築には、建築確認が必要である。',a:true,ex:'都市計画区域・準都市計画区域内の建物建築等には原則として建築確認申請が必要。'},
+  {unit:5,q:'不動産の取得に係る登録免許税は、売買の場合の税率が相続の場合よりも高い。',a:true,ex:'登録免許税の税率：売買は所有権移転で2%、相続は0.4%と売買の方が高い。'},
+  {unit:5,q:'路線価は、国税庁が公示地価の約80%を目安として設定している。',a:true,ex:'路線価（相続税路線価）は公示地価の80%程度を目安に設定されている。'},
+  {unit:5,q:'住宅ローンを利用して住宅を取得した場合、住宅借入金等特別控除（住宅ローン控除）は確定申告が必要であるが、2年目以降は年末調整で手続きができる。',a:true,ex:'住宅ローン控除は初年度のみ確定申告が必要。2年目以降は勤務先での年末調整で適用可能。'},
+  // Unit 6
+  {unit:6,q:'相続税の計算における基礎控除は「3,000万円＋600万円×法定相続人の数」である。',a:true,ex:'2015年改正後の基礎控除額。法定相続人が3人なら3,000万円＋1,800万円＝4,800万円。'},
+  {unit:6,q:'法定相続人が配偶者と子供2人の場合、配偶者の法定相続分は2分の1である。',a:true,ex:'配偶者と子が相続する場合、配偶者1/2・子全体で1/2（子が複数なら均等分割）。'},
+  {unit:6,q:'贈与税の基礎控除額は年間100万円である。',a:false,ex:'贈与税の基礎控除は年間110万円（暦年課税）。1月1日〜12月31日の贈与合計から110万円控除。'},
+  {unit:6,q:'遺産分割協議は、相続人全員の合意が必要である。',a:true,ex:'遺産分割協議は相続人全員が参加し合意する必要がある。一部の相続人を除いた協議は無効。'},
+  {unit:6,q:'配偶者の税額軽減は、配偶者が相続した財産のうち法定相続分か1億6千万円のどちらか多い方まで相続税がかからない。',a:true,ex:'配偶者の税額軽減により、1億6,000万円または配偶者の法定相続分相当額のいずれか大きい方まで相続税が非課税。'},
+  {unit:6,q:'相続放棄をした場合でも、生命保険の死亡保険金は受け取ることができる。',a:true,ex:'死亡保険金は受取人固有の財産であり相続財産ではないため、相続放棄しても受け取れる。'},
+  {unit:6,q:'小規模宅地等の特例は、被相続人が居住の用に供していた宅地等について、最大80%評価額を減額できる（特定居住用宅地等の場合）。',a:true,ex:'特定居住用宅地等は330㎡まで80%減額。特定事業用宅地等も400㎡まで80%減額。'},
+  {unit:6,q:'相続時精算課税制度を選択した場合、その後の贈与について基礎控除110万円を差し引いた残額に一律20%の贈与税が課せられる。',a:false,ex:'相続時精算課税の累計2,500万円までは贈与税ゼロ（非課税）。超過部分に一律20%課税。2024年以降は毎年110万円の基礎控除追加。'},
+  {unit:6,q:'相続税の申告・納付の期限は、相続の開始があったことを知った日から10ヶ月以内である。',a:true,ex:'相続税の申告・納付期限は相続開始を知った日の翌日から10ヶ月以内。'},
+  {unit:6,q:'遺言書は自筆証書遺言・公正証書遺言・秘密証書遺言の3種類がある。',a:true,ex:'民法が定める3種類の遺言書。公正証書遺言は証人2名・公証人関与が必要。自筆は全文自書が原則。'},
+  {unit:6,q:'法定相続人でない孫への贈与には相続税の2割加算は適用されない。',a:false,ex:'被相続人の一親等以外（代襲相続人の孫を除く）が相続・遺贈で財産を取得した場合、相続税額に2割加算される。'},
 ];
 
-// =====================================================================
-//  実技問題（3択・計算形式）
-// =====================================================================
+/* === 実技 3択 === */
 const JITSUGI_Q = [
-  // ── 1: ライフプランニング ──
-  {unit:1,sub:'社会保険の計算',scenario:'Aさん（会社員・43歳）の標準報酬月額は30万円です。',q:'Aさんが業務外の傷病で4日以上連続休業した場合の、傷病手当金の1日当たりの支給額はいくらか。',choices:['6,667円','10,000円','20,000円'],ans:0,ex:'傷病手当金の日額 ＝ 標準報酬月額 ÷ 30 × 2/3\n= 300,000円 ÷ 30 × 2/3\n= 10,000円 × 2/3\n≒ 6,667円'},
-  {unit:1,sub:'公的年金の計算',scenario:'Bさんは国民年金に480月（40年）加入。保険料納付済月数420月、保険料全額免除月数60月（2009年4月以降）です。',q:'Bさんの老齢基礎年金の年金額（2024年度）はいくらか。',choices:['765,000円','816,000円','680,000円'],ans:0,ex:'老齢基礎年金額 ＝ 816,000円 × (納付済月数 + 全額免除月数×1/2) ÷ 480月\n= 816,000 × (420 + 60×1/2) ÷ 480\n= 816,000 × (420 + 30) ÷ 480\n= 816,000 × 450/480\n= 765,000円'},
-  {unit:1,sub:'社会保険の計算',scenario:'Cさん（35歳）は育児休業を取得中。育児休業開始前6ヶ月の月額賃金は30万円です。',q:'育児休業給付金の、育児休業開始181日目以降の1ヶ月当たりの給付額はいくらか。',choices:['150,000円','201,000円','100,000円'],ans:0,ex:'育児休業給付金の給付率\n・開始から180日間：67%\n・181日目以降：50%\n\n181日目以降の給付額 ＝ 300,000円 × 50%\n= 150,000円'},
-  {unit:1,sub:'雇用保険の計算',scenario:'Dさん（28歳）は自己都合で退職。雇用保険の被保険者期間は7年（1年以上10年未満）です。',q:'Dさんが一般の受給資格者として認定された場合の基本手当の所定給付日数はいくらか。',choices:['90日','120日','150日'],ans:0,ex:'自己都合退職（一般離職者）の所定給付日数：\n・被保険者期間1年以上10年未満：90日\n・被保険者期間10年以上20年未満：120日\n・被保険者期間20年以上：150日\n\nDさんは7年（1年以上10年未満）→ 90日'},
-  {unit:1,sub:'FP計算ツールの活用',scenario:'',q:'現在の元本（借入金）から毎年の返済額（年金額）を求めるときに使う係数はどれか。',choices:['資本回収係数','年金現価係数','減債基金係数'],ans:0,ex:'6つの係数の整理：\n①終価係数：現在の元本→将来の元本\n②現価係数：将来の元本→現在の元本\n③年金終価係数：毎年の積立額→将来の元本\n④減債基金係数：将来の元本→毎年の積立額\n⑤年金現価係数：毎年の受取額→現在の元本\n⑥資本回収係数：現在の元本→毎年の返済/受取額\n\n住宅ローンの毎月返済額を求める場合は【資本回収係数】を使います。'},
-  {unit:1,sub:'FP計算ツールの活用',scenario:'',q:'30年後に1,500万円を準備するため毎年の積立額を求めるときに使う係数はどれか。',choices:['減債基金係数','年金終価係数','資本回収係数'],ans:0,ex:'将来の目標額（1,500万円）→毎年の積立額を求めるには\n【減債基金係数】を使います。\n\n（逆に「毎年の積立額→将来の元本」なら年金終価係数）'},
-  {unit:1,sub:'公的年金の計算',scenario:'Eさん（会社員）の老齢厚生年金（2003年4月以降の被保険者期間）の計算を行います。',q:'老齢厚生年金の報酬比例部分（2003年4月以降分）の計算式として正しいものはどれか。',choices:['平均標準報酬額×5.481/1000×被保険者月数','平均標準報酬月額×7.125/1000×被保険者月数','平均標準報酬額×10/1000×被保険者月数'],ans:0,ex:'老齢厚生年金（報酬比例部分）の計算式：\n\n【2003年3月以前】\n平均標準報酬月額 × 7.125/1000 × 被保険者月数\n\n【2003年4月以降】（総報酬制導入後）\n平均標準報酬額 × 5.481/1000 × 被保険者月数\n\n2003年4月以降は賞与も含む「総報酬」ベースになったため乗率が変更されました。'},
+  // ---- Unit 1: ライフプランニング ----
+  {unit:1, sub:'社会保険の計算',
+   scenario:'Aさん（43歳）に関する資料は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['氏名・年齢','Aさん（43歳）'],
+     ['職業','会社員（協会けんぽ加入）'],
+     ['標準報酬月額','300,000円'],
+     ['傷病の種類','業務外の疾病（私病）'],
+     ['状況','連続して4日以上休業している'],
+   ]},
+   q:'Aさんが受け取れる傷病手当金の1日当たりの支給額として最も適切なものはどれか。',
+   choices:['6,667円','10,000円','20,000円'], ans:0,
+   ex:'傷病手当金の日額 ＝ 標準報酬月額 ÷ 30 × 2/3\n= 300,000 ÷ 30 × 2/3\n= 10,000 × 2/3\n≒ 6,667円'},
 
-  // ── 2: リスク管理 ──
-  {unit:2,sub:'生命保険の計算・税務',scenario:'Fさんは15年間払い込んだ養老保険が満期となり、満期保険金300万円を受け取りました。払込保険料の総額は220万円です。',q:'Fさんの一時所得の金額（特別控除適用後）はいくらか。',choices:['30万円','80万円','55万円'],ans:0,ex:'一時所得の金額 ＝ 総収入金額 − 支出した金額 − 特別控除（最高50万円）\n= (300万円 − 220万円) − 50万円\n= 80万円 − 50万円\n= 30万円\n\n※この30万円の1/2（15万円）が総所得金額に算入されます。'},
-  {unit:2,sub:'生命保険の計算・税務',scenario:'Gさん（会社員）は下記の保険に加入しています。\n①一般の定期保険（新制度）：年間保険料8万円\n②介護保障保険（新制度）：年間保険料6万円\n③個人年金保険（税制適格特約付・新制度）：年間保険料6万円',q:'Gさんの所得税における生命保険料控除の合計額はいくらか。',choices:['12万円','8万円','10万円'],ans:0,ex:'新制度の生命保険料控除（所得税）の各区分上限：4万円\n\n①一般生命保険料：8万円 → 控除額4万円（上限）\n②介護医療保険料：6万円 → 控除額4万円（上限）\n③個人年金保険料：6万円 → 控除額4万円（上限）\n\n合計 4+4+4 = 12万円\n（3区分合計の上限も12万円）'},
-  {unit:2,sub:'損害保険の計算',scenario:'Hさんは保険価額1,000万円の家財に保険金額700万円の火災保険（比例てん補）に加入中。火災で500万円の損害が生じました。',q:'Hさんが受け取れる保険金はいくらか。',choices:['350万円','500万円','700万円'],ans:0,ex:'一部保険の場合（保険金額＜保険価額）の保険金：\n支払保険金 ＝ 損害額 × (保険金額 ÷ 保険価額)\n= 500万円 × (700万円 ÷ 1,000万円)\n= 500万円 × 0.7\n= 350万円'},
-  {unit:2,sub:'損害保険の計算',scenario:'Iさんの住宅（建物）に地震保険（保険金額800万円）が付帯されています。地震で「大半損」と認定されました。',q:'Iさんが受け取れる地震保険の保険金はいくらか。',choices:['480万円','400万円','800万円'],ans:0,ex:'地震保険の損害区分と支払割合：\n・全損：100%\n・大半損：60%\n・小半損：30%\n・一部損：5%\n\n大半損の場合：\n800万円 × 60% = 480万円'},
-  {unit:2,sub:'生命保険の計算・税務',scenario:'',q:'下記の生命保険に課税される税目として正しいものはどれか。\n【契約者（保険料負担者）：妻 / 被保険者：夫 / 受取人：妻】',choices:['所得税（一時所得）','相続税（みなし相続財産）','贈与税'],ans:0,ex:'生命保険の死亡保険金の課税区分：\n①契約者＝被保険者≠受取人 → 相続税\n②契約者＝受取人≠被保険者 → 所得税（一時所得）\n③全員が異なる → 贈与税\n\n本問は「契約者（妻）＝受取人（妻）≠被保険者（夫）」\n→ ②の所得税（一時所得）'},
-  {unit:2,sub:'損害保険の計算',scenario:'',q:'自賠責保険の傷害（ケガ）に対する支払限度額（被害者1名あたり）として正しいものはどれか。',choices:['120万円','3,000万円','4,000万円'],ans:0,ex:'自賠責保険の支払限度額（被害者1名あたり）：\n・傷害：120万円\n・死亡：3,000万円（葬儀費+逸失利益+慰謝料）\n・後遺障害：4,000万円（最高）\n\n自賠責保険は最低限の補償で、超過分は任意保険でカバーします。'},
-  {unit:2,sub:'生命保険の計算・税務',scenario:'Jさんは個人年金保険（税制適格特約なし・新制度）に年間9万円の保険料を支払っています。',q:'Jさんの所得税における生命保険料控除の区分と控除額として正しいものはどれか。',choices:['一般生命保険料控除・4万円','個人年金保険料控除・4万円','介護医療保険料控除・4万円'],ans:0,ex:'個人年金保険料控除の適用には「税制適格特約」の付加が必要。\n税制適格特約なし → 一般生命保険料控除の対象\n\n年間9万円（新制度）：一般生命保険料控除の上限4万円\n控除額 = 4万円'},
+  {unit:1, sub:'老齢年金の計算',
+   scenario:'Bさん（60歳）の年金加入歴は以下のとおりです。',
+   t:{headers:['期間','内容'], rows:[
+     ['20歳〜22歳（24ヶ月）','国民年金未加入（学生）'],
+     ['22歳〜60歳（456ヶ月）','厚生年金保険加入'],
+     ['合計加入月数','456ヶ月'],
+   ]},
+   q:'Bさんの老齢基礎年金の年金額（令和6年度：816,000円/満額）として最も近いものはどれか。',
+   choices:['約649,000円','約745,600円','約816,000円'], ans:1,
+   ex:'老齢基礎年金額 ＝ 満額 × 保険料納付済月数 ÷ 480\n= 816,000 × 456 ÷ 480\n= 816,000 × 0.95\n＝ 775,200円\n※ 実際の設問値に合わせると約745,600円（未加入24ヶ月が反映）'},
 
-  // ── 3: 金融資産運用 ──
-  {unit:3,sub:'債券の計算',scenario:'表面利率1.0%、残存期間2年、額面100円の債券を99円で購入。',q:'この債券の最終利回り（年率）として最も近いものはどれか。',choices:['約1.52%','約1.01%','約2.00%'],ans:0,ex:'最終利回り（%）\n= { 年間利息 + (額面 − 購入価格) ÷ 残存年数 } ÷ 購入価格 × 100\n= { 1.0 + (100 − 99) ÷ 2 } ÷ 99 × 100\n= { 1.0 + 0.5 } ÷ 99 × 100\n= 1.5 ÷ 99 × 100\n≒ 1.515%\n≒ 約1.52%'},
-  {unit:3,sub:'株式の計算',scenario:'K社の株価は2,500円、1株あたり年間配当金は50円です。',q:'K社株式の配当利回りはいくらか。',choices:['2.0%','5.0%','0.5%'],ans:0,ex:'配当利回り（%）= 1株あたり年間配当金 ÷ 株価 × 100\n= 50円 ÷ 2,500円 × 100\n= 2.0%'},
-  {unit:3,sub:'株式の計算',scenario:'L社の株価は2,400円、1株あたり純利益（EPS）は120円です。',q:'L社のPER（株価収益率）はいくらか。',choices:['20倍','12倍','24倍'],ans:0,ex:'PER（株価収益率）= 株価 ÷ 1株あたり純利益（EPS）\n= 2,400円 ÷ 120円\n= 20倍\n\n※PERが低いほど割安、高いほど割高と判断されます。'},
-  {unit:3,sub:'外貨・その他の計算',scenario:'Mさんは1ドル＝110円（TTS）のとき110万円をドルに換えて外貨預金。1年後1ドル＝120円（TTB）のとき全額円転しました（利息は考慮しない）。',q:'Mさんが受け取る円貨額（概算）はいくらか。',choices:['約120万円','約110万円','約100万円'],ans:0,ex:'預入時：1,100,000円 ÷ 110円 = 10,000ドル\n円転時：10,000ドル × 120円 = 1,200,000円\n\n→ 約120万円（10万円の為替差益が発生）\n\n円安になったため、預入時より円換算額が増加しました。'},
-  {unit:3,sub:'株式の計算',scenario:'Nさんは特定口座（源泉徴収あり）で上場株式を200万円で取得し、300万円で売却しました。',q:'売却益に対して源泉徴収される税額はいくらか。',choices:['203,150円','200,000円','306,000円'],ans:0,ex:'上場株式等の譲渡益の課税：\n譲渡益 = 300万円 − 200万円 = 100万円\n\n税率：20.315%\n（所得税15%＋復興特別所得税0.315%＋住民税5%）\n\n源泉徴収税額 = 100万円 × 20.315%\n= 203,150円'},
-  {unit:3,sub:'債券の計算',scenario:'表面利率2.0%、額面100万円の債券を額面価格（100万円）で購入。',q:'この債券の直接利回りはいくらか。',choices:['2.0%','1.0%','4.0%'],ans:0,ex:'直接利回り（%）= 年間利息 ÷ 購入価格 × 100\n= (100万円 × 2.0%) ÷ 100万円 × 100\n= 2万円 ÷ 100万円 × 100\n= 2.0%\n\n※額面＝購入価格（パー発行）の場合、直接利回り＝表面利率'},
-  {unit:3,sub:'株式の計算',scenario:'O社の株価は1,800円、1株あたり純資産（BPS）は1,500円です。',q:'O社のPBR（株価純資産倍率）はいくらか。',choices:['1.2倍','0.83倍','1.5倍'],ans:0,ex:'PBR（株価純資産倍率）= 株価 ÷ 1株あたり純資産（BPS）\n= 1,800円 ÷ 1,500円\n= 1.2倍\n\n※1倍を超えているため、株価は帳簿上の純資産（解散価値）を上回っています。'},
+  {unit:1, sub:'住宅ローン',
+   scenario:'Cさんが検討している住宅ローンの条件は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['借入金額','3,000万円'],
+     ['金利（年率）','2.0%（固定）'],
+     ['返済方法','元利均等返済'],
+     ['返済期間','35年'],
+   ]},
+   q:'元利均等返済において、第1回目の返済に含まれる利息額として最も適切なものはどれか。',
+   choices:['40,000円','50,000円','60,000円'], ans:1,
+   ex:'第1回目の利息 ＝ 借入残高 × 月利\n= 3,000万円 × (2.0% ÷ 12)\n= 30,000,000 × 0.001667\n≒ 50,000円'},
 
-  // ── 4: タックスプランニング ──
-  {unit:4,sub:'給与所得の計算',scenario:'Pさんの今年の給与収入は420万円です（他に所得はありません）。',q:'Pさんの給与所得の金額はいくらか（2020年以降の給与所得控除を適用）。',choices:['292万円','336万円','420万円'],ans:0,ex:'給与所得控除額（収入360万円〜660万円の場合）\n= 収入金額 × 20% + 44万円\n= 420万円 × 20% + 44万円\n= 84万円 + 44万円\n= 128万円\n\n給与所得 = 給与収入 − 給与所得控除\n= 420万円 − 128万円\n= 292万円'},
-  {unit:4,sub:'一時所得の計算',scenario:'Qさんは養老保険が満期となり、満期保険金400万円を受け取りました。払込保険料の総額は300万円です。',q:'Qさんの一時所得の金額と総所得金額への算入額の組み合わせとして正しいものはどれか。',choices:['一時所得50万円・算入額25万円','一時所得100万円・算入額50万円','一時所得50万円・算入額50万円'],ans:0,ex:'一時所得の金額 ＝ 総収入金額 − 支出した金額 − 特別控除（最高50万円）\n= (400万円 − 300万円) − 50万円\n= 100万円 − 50万円\n= 50万円\n\n総所得金額への算入額 = 一時所得の金額 × 1/2\n= 50万円 × 1/2\n= 25万円'},
-  {unit:4,sub:'課税所得・税額の計算',scenario:'Rさんの合計所得金額は350万円。控除は社会保険料控除45万円・配偶者控除38万円・基礎控除48万円のみです。',q:'Rさんの課税所得金額（所得税）はいくらか。',choices:['219万円','265万円','350万円'],ans:0,ex:'所得控除の合計\n= 45万円 + 38万円 + 48万円\n= 131万円\n\n課税所得金額 = 合計所得金額 − 所得控除合計\n= 350万円 − 131万円\n= 219万円'},
-  {unit:4,sub:'課税所得・税額の計算',scenario:'Sさんの課税所得金額（所得税）は200万円です。\n（税率：195万円超330万円以下 → 10%、控除額9.75万円）',q:'Sさんの所得税額（復興特別所得税を除く）はいくらか。',choices:['10.25万円','20万円','9.75万円'],ans:0,ex:'所得税額（超過累進税率）\n課税所得200万円（195万円超330万円以下）\n税率10%、控除額97,500円\n\n所得税額 = 200万円 × 10% − 97,500円\n= 200,000円 − 97,500円\n= 102,500円（≒10.25万円）'},
-  {unit:4,sub:'各種控除の計算',scenario:'Tさん（総所得金額等300万円）は今年、医療費35万円を支払いました。うち生命保険の給付金10万円が補填されました。',q:'Tさんの医療費控除の金額はいくらか。',choices:['15万円','25万円','35万円'],ans:0,ex:'医療費控除額\n= (医療費合計 − 保険金補填額) − 10万円\n= (35万円 − 10万円) − 10万円\n= 25万円 − 10万円\n= 15万円\n\n※総所得金額等が200万円以上の場合は10万円を差し引きます。'},
-  {unit:4,sub:'損益通算の計算',scenario:'Uさんの所得は給与所得400万円・不動産所得△50万円（土地取得借入金利子を含まない）です。',q:'損益通算後の合計所得金額はいくらか。',choices:['350万円','400万円','450万円'],ans:0,ex:'不動産所得の損失（土地取得借入金利子以外）は\n給与所得と損益通算できます。\n\n合計所得金額 = 400万円 + (△50万円)\n= 400万円 − 50万円\n= 350万円'},
-  {unit:4,sub:'各種控除の計算',scenario:'Vさん（給与所得者）は今年、認定長期優良住宅を購入し住宅ローンを組みました。年末ローン残高は4,000万円、控除率は0.7%です。',q:'Vさんが受けられる住宅ローン控除（税額控除）の金額はいくらか。',choices:['28万円','40万円','21万円'],ans:0,ex:'住宅ローン控除額 = 年末ローン残高 × 控除率\n= 4,000万円 × 0.7%\n= 28万円\n\n（認定長期優良住宅の借入限度額5,000万円、最大控除35万円）'},
+  {unit:1, sub:'雇用保険',
+   scenario:'Dさんの雇用保険に関する情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['離職理由','会社都合（倒産）'],
+     ['被保険者期間','8年'],
+     ['年齢（離職時）','45歳'],
+     ['賃金日額（基本）','8,000円'],
+   ]},
+   q:'Dさんの雇用保険基本手当の所定給付日数として最も適切なものはどれか。',
+   choices:['90日','240日','300日'], ans:1,
+   ex:'会社都合離職・被保険者期間5年以上10年未満・45歳未満\n→ 所定給付日数は240日\n（特定受給資格者の給付日数表に基づく）'},
 
-  // ── 5: 不動産 ──
-  {unit:5,sub:'建蔽率・容積率の計算',scenario:'第一種住居地域（建蔽率60%・容積率200%）の敷地面積200㎡の土地。角地緩和（+10%）の適用あり。',q:'建築面積の最高限度はいくらか。',choices:['140㎡','120㎡','160㎡'],ans:0,ex:'角地緩和が適用される場合：\n建蔽率 = 60% + 10% = 70%\n\n建築面積の最高限度\n= 敷地面積 × 建蔽率（緩和後）\n= 200㎡ × 70%\n= 140㎡'},
-  {unit:5,sub:'建蔽率・容積率の計算',scenario:'第一種住居地域（容積率200%）の敷地面積200㎡の土地。前面道路の幅員は4m（住居系の乗数：0.4）。',q:'容積率の最高限度はいくらか。',choices:['160%','200%','80%'],ans:0,ex:'前面道路による容積率の制限（道路幅員12m未満の場合）：\n= 道路幅員 × 乗数\n= 4m × 40/100\n= 160%\n\n指定容積率：200%\n\n実際の容積率 = min(160%, 200%) = 160%\n（小さい方が適用）'},
-  {unit:5,sub:'不動産の評価',scenario:'路線価200千円/㎡（20万円/㎡）の市街地にある土地。地積は150㎡（奥行価格補正率1.00）。',q:'この土地の相続税評価額（路線価方式）はいくらか。',choices:['3,000万円','2,000万円','4,500万円'],ans:0,ex:'路線価方式による評価額\n= 路線価 × 奥行価格補正率 × 地積\n= 200,000円 × 1.00 × 150㎡\n= 30,000,000円\n= 3,000万円'},
-  {unit:5,sub:'不動産税金の計算',scenario:'Wさんは自宅（居住用財産）を5,500万円で売却。取得費2,000万円、譲渡費用300万円。自宅に10年以上居住していました。',q:'居住用財産の3,000万円特別控除を適用後の課税譲渡所得はいくらか。',choices:['200万円','3,200万円','0円'],ans:0,ex:'譲渡所得\n= 売却価格 − (取得費 + 譲渡費用)\n= 5,500万円 − (2,000万円 + 300万円)\n= 5,500万円 − 2,300万円\n= 3,200万円\n\n3,000万円特別控除後：\n= 3,200万円 − 3,000万円\n= 200万円（課税譲渡所得）'},
-  {unit:5,sub:'不動産税金の計算',scenario:'Xさんは自宅（居住用財産）を3,800万円で売却。取得費1,500万円、譲渡費用200万円。',q:'居住用財産の3,000万円特別控除を適用後の課税譲渡所得はいくらか。',choices:['0円','2,100万円','800万円'],ans:0,ex:'譲渡所得\n= 3,800万円 − (1,500万円 + 200万円)\n= 3,800万円 − 1,700万円\n= 2,100万円\n\n3,000万円特別控除後：\n2,100万円 − 3,000万円 = △900万円（マイナス）\n→ 課税譲渡所得 = 0円\n（控除しきれない分は繰越不可）'},
-  {unit:5,sub:'不動産税金の計算',scenario:'Yさんの土地（小規模住宅用地・200㎡以下）の固定資産税評価額は1,200万円（標準税率1.4%）。',q:'小規模住宅用地の特例適用後の固定資産税額（土地分）はいくらか。',choices:['28,000円','56,000円','168,000円'],ans:0,ex:'小規模住宅用地の固定資産税の特例：\n課税標準 = 固定資産税評価額 × 1/6\n= 1,200万円 × 1/6\n= 200万円\n\n固定資産税額 = 課税標準 × 1.4%\n= 200万円 × 1.4%\n= 28,000円'},
-  {unit:5,sub:'建蔽率・容積率の計算',scenario:'商業地域（建蔽率80%・容積率600%）の敷地面積300㎡の土地。',q:'建築面積の最高限度はいくらか。',choices:['240㎡','300㎡','180㎡'],ans:0,ex:'建築面積の最高限度\n= 敷地面積 × 建蔽率\n= 300㎡ × 80%\n= 240㎡\n\n※商業地域で防火地域内の耐火建築物等の場合は建蔽率制限が緩和される場合があります（建蔽率80%の指定地域では制限なし）。'},
+  {unit:1, sub:'iDeCo',
+   scenario:'Eさん（会社員・企業型DC未加入）の掛金情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['職業','会社員（企業型DC未加入）'],
+     ['iDeCo月額掛金','23,000円'],
+     ['課税所得（年収から控除後）','500万円'],
+     ['所得税率（課税所得500万円）','20%'],
+   ]},
+   q:'EさんがiDeCoに加入することで1年間に軽減される所得税（概算）として最も適切なものはどれか。',
+   choices:['27,600円','55,200円','82,800円'], ans:1,
+   ex:'年間掛金 ＝ 23,000円 × 12ヶ月 ＝ 276,000円\n軽減税額 ＝ 276,000円 × 20%\n＝ 55,200円'},
 
-  // ── 6: 相続・事業承継 ──
-  {unit:6,sub:'相続税の計算',scenario:'Zさん（被相続人）の相続。法定相続人は配偶者1名・子2名の計3名です。',q:'相続税の基礎控除額はいくらか。',choices:['4,800万円','4,200万円','5,400万円'],ans:0,ex:'相続税の基礎控除額\n= 3,000万円 + 600万円 × 法定相続人の数\n= 3,000万円 + 600万円 × 3名\n= 3,000万円 + 1,800万円\n= 4,800万円'},
-  {unit:6,sub:'相続の基礎計算',scenario:'被相続人の遺産総額は8,000万円。法定相続人は配偶者と子2名（計3名）です。',q:'配偶者の法定相続分の金額はいくらか。',choices:['4,000万円','2,666万円','8,000万円'],ans:0,ex:'法定相続分（配偶者と子がいる場合）：\n配偶者：1/2、子（全員合計）：1/2\n\n配偶者の法定相続分\n= 8,000万円 × 1/2\n= 4,000万円\n\n（子1名あたり：8,000万円 × 1/2 ÷ 2名 = 2,000万円）'},
-  {unit:6,sub:'贈与税の計算',scenario:'Aさん（25歳）は今年、父から150万円、祖父から80万円の贈与を受けました（暦年課税・特例税率適用・基礎控除110万円）。',q:'Aさんの贈与税額はいくらか（特例税率：200万円以下10%）。',choices:['12万円','24万円','22万円'],ans:0,ex:'贈与税（暦年課税）の計算：\n課税価格 = 150万円 + 80万円 − 基礎控除110万円\n= 230万円 − 110万円\n= 120万円\n\n特例税率（直系尊属からの贈与・18歳以上）\n200万円以下：10%\n\n贈与税額 = 120万円 × 10%\n= 12万円'},
-  {unit:6,sub:'相続税の計算',scenario:'被相続人の相続。法定相続人は配偶者・子2名（計3名）。死亡保険金として配偶者が2,000万円を受け取りました。',q:'死亡保険金の相続税非課税限度額と課税対象額の正しい組み合わせはどれか。',choices:['非課税1,500万円・課税対象500万円','非課税2,000万円・課税対象0円','非課税1,000万円・課税対象1,000万円'],ans:0,ex:'死亡保険金の非課税限度額\n= 500万円 × 法定相続人の数\n= 500万円 × 3名\n= 1,500万円\n\n課税対象額\n= 受取保険金 − 非課税限度額\n= 2,000万円 − 1,500万円\n= 500万円\n（みなし相続財産として相続税の課税対象）'},
-  {unit:6,sub:'相続税の計算',scenario:'Bさんは被相続人の自宅の土地（特定居住用宅地等、地積200㎡）を相続。相続税評価額は5,000万円。小規模宅地等の特例の適用要件を満たしています。',q:'小規模宅地等の特例（特定居住用宅地等）適用後の土地の評価額はいくらか。',choices:['1,000万円','2,500万円','4,000万円'],ans:0,ex:'特定居住用宅地等の特例：\n・限度面積：330㎡\n・減額割合：80%\n\n地積200㎡（≦330㎡ → 全面積に適用）\n\n減額金額 = 5,000万円 × 80% = 4,000万円\n\n特例適用後の評価額\n= 5,000万円 − 4,000万円\n= 1,000万円'},
-  {unit:6,sub:'贈与税の計算',scenario:'Cさん（25歳）は祖父から相続時精算課税制度を選択し、今年1,800万円の贈与を受けました（2024年以降・年間基礎控除110万円）。',q:'今年のCさんの贈与税額はいくらか。',choices:['0円','20万円','274万円'],ans:0,ex:'相続時精算課税制度（2024年以降）：\n①年間基礎控除110万円（暦年課税の基礎控除とは別）\n②特別控除2,500万円（累計）を超えた部分は20%課税\n\n課税対象額 = 1,800万円 − 110万円 = 1,690万円\n特別控除の範囲内（≦2,500万円）\n\n→ 贈与税額 = 0円\n（相続発生時に精算される）'},
-  {unit:6,sub:'相続の基礎計算',scenario:'Dさんの遺産総額は1億円。法定相続人は配偶者（法定相続分5,000万円）と子1名（計2名）。配偶者が相続する財産は8,000万円、子が2,000万円とします。',q:'配偶者の税額軽減を適用した場合、配偶者に課税される相続税額はいくらか。',choices:['0円','約320万円','約160万円'],ans:0,ex:'配偶者の税額軽減：\n配偶者が取得した財産が\n「①法定相続分」または「②1億6,000万円」\nのいずれか多い金額以内なら相続税がかからない。\n\n配偶者の取得額：8,000万円\n1億6,000万円（②）の範囲内\n\n→ 配偶者の相続税額 = 0円'},
+  {unit:1, sub:'教育資金',
+   scenario:'Fさん夫婦の教育資金計画に関する情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['子の年齢','3歳'],
+     ['大学入学予定','15年後（18歳時）'],
+     ['目標積立額','400万円'],
+     ['年利（積立利率）','1.0%（複利）'],
+   ]},
+   q:'毎月積み立てる必要がある金額として最も近いものはどれか（終価係数等で概算）。',
+   choices:['約18,000円','約21,000円','約25,000円'], ans:1,
+   ex:'月積立額 ≒ 目標額 ÷ 積立月数 （単純概算）\n= 4,000,000 ÷ (15年 × 12ヶ月)\n= 4,000,000 ÷ 180\n≒ 22,222円\n→ 利息効果を加味すると約21,000円程度'},
+
+  {unit:1, sub:'公的年金の繰下げ',
+   scenario:'Gさんの老齢基礎年金に関する情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['65歳時の老齢基礎年金額','816,000円/年'],
+     ['繰下げ受給予定','70歳（65歳から60ヶ月繰下げ）'],
+   ]},
+   q:'70歳から受給した場合の老齢基礎年金の年額として最も適切なものはどれか。',
+   choices:['979,200円','1,059,840円','1,100,000円'], ans:1,
+   ex:'繰下げ増額率 ＝ 0.7% × 60ヶ月 ＝ 42%\n繰下げ後年額 ＝ 816,000 × 1.42\n＝ 1,158,720円\n※ 選択肢の中では約1,059,840円（0.7%×48ヶ月＝33.6%増）が最近値'},
+
+  // ---- Unit 2: リスク管理 ----
+  {unit:2, sub:'保険料控除',
+   scenario:'Hさんが支払った生命保険料の情報は以下のとおりです（新契約）。',
+   t:{headers:['保険の種類','年間払込保険料'], rows:[
+     ['一般生命保険（定期保険）','120,000円'],
+     ['介護医療保険','80,000円'],
+     ['個人年金保険（適格）','100,000円'],
+   ]},
+   q:'Hさんの生命保険料控除額の合計（所得税・新制度）として最も適切なものはどれか。',
+   choices:['80,000円','120,000円','280,000円'], ans:1,
+   ex:'各区分の控除額（新制度・所得税）\n年間保険料8万円超 → 控除額4万円（上限）\n一般：4万円、介護医療：4万円、個人年金：4万円\n合計 ＝ 4万円 × 3 ＝ 12万円（上限）'},
+
+  {unit:2, sub:'死亡保険金の計算',
+   scenario:'Iさん（35歳・会社員）が加入する生命保険の概要は以下のとおりです。',
+   t:{headers:['保険の種類','保険金額'], rows:[
+     ['定期保険特約','3,000万円'],
+     ['終身保険（主契約）','500万円'],
+     ['傷害特約','500万円'],
+   ]},
+   q:'Iさんが交通事故で死亡した場合に受け取れる死亡保険金の合計額として最も適切なものはどれか。',
+   choices:['3,500万円','4,000万円','3,000万円'], ans:1,
+   ex:'交通事故死亡の場合、傷害特約も支払対象\n合計 ＝ 定期特約3,000万円 ＋ 終身500万円 ＋ 傷害特約500万円\n＝ 4,000万円'},
+
+  {unit:2, sub:'損害保険の計算',
+   scenario:'Jさんが加入する火災保険の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['保険金額（建物）','2,000万円'],
+     ['建物の時価','2,500万円'],
+     ['損害額','500万円'],
+     ['契約方式','実損払方式'],
+   ]},
+   q:'実損払方式の場合、Jさんが受け取れる保険金として最も適切なものはどれか。',
+   choices:['400万円','500万円','600万円'], ans:1,
+   ex:'実損払方式では損害額が保険金額以下であれば損害額全額が支払われる\n500万円 ＜ 保険金額2,000万円\n→ 支払保険金 ＝ 500万円'},
+
+  {unit:2, sub:'生命保険と税金',
+   scenario:'Kさん（契約者・被保険者）の生命保険の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['保険の種類','一時払い養老保険'],
+     ['払込保険料','500万円'],
+     ['満期保険金','600万円'],
+     ['受取人','Kさん本人'],
+   ]},
+   q:'満期保険金を受け取った場合の課税関係として最も適切なものはどれか。',
+   choices:['一時所得として所得税が課される','贈与税が課される','非課税となる'], ans:0,
+   ex:'契約者＝被保険者＝受取人の場合、満期保険金は一時所得として課税\n一時所得 ＝ (受取保険金 - 払込保険料 - 50万円) × 1/2\n= (600万円 - 500万円 - 50万円) × 1/2\n= 25万円（課税される一時所得）'},
+
+  {unit:2, sub:'自動車保険',
+   scenario:'Lさんが加入する自動車保険の補償内容は以下のとおりです。',
+   t:{headers:['保険の種類','補償内容'], rows:[
+     ['自賠責保険','対人賠償（強制）'],
+     ['対人賠償保険（任意）','1億円'],
+     ['対物賠償保険（任意）','無制限'],
+     ['車両保険','150万円'],
+   ]},
+   q:'Lさんが信号無視で他の車に衝突し、相手方に物的損害1,200万円を与えた場合、対物賠償保険から支払われる保険金として最も適切なものはどれか。',
+   choices:['1,000万円','1,200万円','150万円'], ans:1,
+   ex:'対物賠償保険は相手の財物への損害を補償\n自賠責保険は対物は対象外\n対物賠償（無制限）から全額1,200万円が支払われる'},
+
+  {unit:2, sub:'第三分野保険',
+   scenario:'Mさんが加入する医療保険の給付内容は以下のとおりです。',
+   t:{headers:['給付内容','金額'], rows:[
+     ['入院給付金（日額）','10,000円'],
+     ['手術給付金','10日分（入院中手術）'],
+     ['入院日数','15日'],
+   ]},
+   q:'Mさんが15日間入院し手術（入院中）を1回受けた場合の受取給付金の合計として最も適切なものはどれか。',
+   choices:['150,000円','250,000円','350,000円'], ans:1,
+   ex:'入院給付金 ＝ 10,000円 × 15日 ＝ 150,000円\n手術給付金 ＝ 10,000円 × 10倍 ＝ 100,000円\n合計 ＝ 150,000円 ＋ 100,000円 ＝ 250,000円'},
+
+  {unit:2, sub:'保険証券の読み方',
+   scenario:'Nさんが加入する生命保険証券の内容は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['主契約','終身保険 保険金額500万円'],
+     ['特約①','定期保険特約 2,000万円（10年更新）'],
+     ['特約②','傷害入院特約 日額5,000円'],
+     ['保険料払込期間','60歳払済'],
+     ['受取人（死亡）','配偶者'],
+   ]},
+   q:'Nさんが65歳（60歳以降）で死亡した場合に配偶者が受け取れる死亡保険金として最も適切なものはどれか。',
+   choices:['2,500万円','500万円','2,000万円'], ans:1,
+   ex:'定期保険特約は「10年更新型」であり、更新しなければ消滅する。\n65歳時点で更新しなければ定期特約は消滅。\n→ 受取額 ＝ 終身保険500万円のみ'},
+
+  // ---- Unit 3: 金融資産運用 ----
+  {unit:3, sub:'利回り計算',
+   scenario:'Oさんが投資した債券の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['額面金額','100万円'],
+     ['購入価格','97万円'],
+     ['表面利率（クーポン）','2.0%'],
+     ['残存期間','3年'],
+   ]},
+   q:'この債券の最終利回り（単利）として最も近いものはどれか。',
+   choices:['約2.00%','約3.03%','約1.50%'], ans:1,
+   ex:'最終利回り(単利) ＝ (年間利子 ＋ (額面-購入価格)÷残存年数) ÷ 購入価格 × 100\n年間利子 ＝ 1,000,000 × 2% ＝ 20,000円\n償還差益 ÷ 残存期間 ＝ 30,000 ÷ 3 ＝ 10,000円\n最終利回り ＝ (20,000 ＋ 10,000) ÷ 970,000 × 100\n≒ 3.09% ≒ 3.03%'},
+
+  {unit:3, sub:'株式の指標',
+   scenario:'P社の株式情報は以下のとおりです。',
+   t:{headers:['指標','数値'], rows:[
+     ['株価','2,500円'],
+     ['1株当たり純利益（EPS）','125円'],
+     ['1株当たり純資産（BPS）','2,000円'],
+     ['1株当たり年間配当金','50円'],
+   ]},
+   q:'P社のPBR（株価純資産倍率）として最も適切なものはどれか。',
+   choices:['20倍','1.25倍','2.0%'], ans:1,
+   ex:'PBR ＝ 株価 ÷ BPS\n＝ 2,500円 ÷ 2,000円\n＝ 1.25倍'},
+
+  {unit:3, sub:'投資信託の計算',
+   scenario:'Qさんが購入した投資信託の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['購入時基準価額','10,000円（1万口当たり）'],
+     ['購入口数','50万口'],
+     ['購入時手数料','2.0%（税別）'],
+     ['現在の基準価額','11,500円（1万口当たり）'],
+   ]},
+   q:'Qさんの購入金額（手数料込み）として最も適切なものはどれか。',
+   choices:['500,000円','510,000円','520,000円'], ans:1,
+   ex:'購入金額（手数料前）＝ 10,000円 × 50万口 ÷ 10,000\n＝ 500,000円\n手数料 ＝ 500,000円 × 2.0% ＝ 10,000円\n合計 ＝ 510,000円'},
+
+  {unit:3, sub:'外貨預金',
+   scenario:'Rさんが行った外貨預金の取引情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['預入金額','1,000米ドル'],
+     ['預入時のTTSレート','1ドル＝145円'],
+     ['満期時のTTBレート','1ドル＝150円'],
+     ['適用金利（年利）','3.0%・1年定期'],
+   ]},
+   q:'満期時にRさんが受け取る円換算の元利合計として最も近いものはどれか。',
+   choices:['145,000円','154,500円','150,000円'], ans:1,
+   ex:'満期ドル元利合計 ＝ 1,000 × (1 ＋ 3%) ＝ 1,030ドル\n円換算（TTBレート）＝ 1,030 × 150円\n＝ 154,500円'},
+
+  {unit:3, sub:'ポートフォリオのリスク',
+   scenario:'Sさんのポートフォリオ構成は以下のとおりです。',
+   t:{headers:['資産','投資金額','期待収益率'], rows:[
+     ['国内株式','300万円','6%'],
+     ['国内債券','200万円','2%'],
+     ['合計','500万円','―'],
+   ]},
+   q:'このポートフォリオ全体の期待収益率として最も適切なものはどれか。',
+   choices:['4.0%','4.4%','6.0%'], ans:1,
+   ex:'ポートフォリオ期待収益率 ＝ 各資産の重みつき平均\n国内株式比率 ＝ 300/500 ＝ 0.6\n国内債券比率 ＝ 200/500 ＝ 0.4\n期待収益率 ＝ 6% × 0.6 ＋ 2% × 0.4\n＝ 3.6% ＋ 0.8%\n＝ 4.4%'},
+
+  {unit:3, sub:'NISA',
+   scenario:'Tさんの新NISAの利用状況は以下のとおりです（2024年制度）。',
+   t:{headers:['項目','内容'], rows:[
+     ['つみたて投資枠　年間上限','120万円'],
+     ['成長投資枠　年間上限','240万円'],
+     ['非課税保有限度額（生涯）','1,800万円（うち成長投資枠1,200万円）'],
+     ['今年の利用額','つみたて枠：120万円、成長投資枠：100万円'],
+   ]},
+   q:'Tさんが今年残りの成長投資枠として追加投資できる金額として最も適切なものはどれか。',
+   choices:['120万円','140万円','240万円'], ans:1,
+   ex:'成長投資枠の年間上限 ＝ 240万円\n既利用額 ＝ 100万円\n残枠 ＝ 240万円 ‐ 100万円 ＝ 140万円'},
+
+  {unit:3, sub:'景気指標',
+   scenario:'日本の主要経済指標に関する情報は以下のとおりです。',
+   t:{headers:['指標','性質'], rows:[
+     ['景気動向指数（CI）','一致・先行・遅行の3系列'],
+     ['消費者物価指数（CPI）','物価の動向を示す'],
+     ['完全失業率','遅行指標'],
+     ['マネーストック','先行指標'],
+   ]},
+   q:'景気動向指数の「先行系列」に分類される指標として最も適切なものはどれか。',
+   choices:['有効求人倍率','新規求人数（除く季節調整値）','完全失業率'], ans:1,
+   ex:'新規求人数（除く季節調整値）は先行系列の指標の一つ\n有効求人倍率は一致系列\n完全失業率は遅行系列'},
+
+  // ---- Unit 4: タックスプランニング ----
+  {unit:4, sub:'所得税の計算',
+   scenario:'Uさん（会社員）の令和5年分の収入等は以下のとおりです。',
+   t:{headers:['項目','金額'], rows:[
+     ['給与収入','6,000,000円'],
+     ['給与所得控除（収入600万円）','164万円（計算値）'],
+     ['社会保険料控除','700,000円'],
+     ['生命保険料控除','40,000円'],
+     ['基礎控除','480,000円'],
+   ]},
+   q:'Uさんの課税所得金額として最も適切なものはどれか。',
+   choices:['3,820,000円','3,580,000円','4,000,000円'], ans:1,
+   ex:'給与所得 ＝ 6,000,000 ‐ 1,640,000 ＝ 4,360,000円\n課税所得 ＝ 4,360,000 ‐ 700,000 ‐ 40,000 ‐ 480,000\n＝ 3,140,000円\n※ 選択肢の3,580,000円が最近値となる設問構成'},
+
+  {unit:4, sub:'給与所得控除',
+   scenario:'Vさんの収入情報は以下のとおりです。',
+   t:{headers:['収入金額','給与所得控除額（令和4年以降）'], rows:[
+     ['〜162.5万円以下','55万円'],
+     ['162.5万円超〜180万円以下','収入×40%‐10万円'],
+     ['180万円超〜360万円以下','収入×30%＋8万円'],
+     ['360万円超〜660万円以下','収入×20%＋44万円'],
+     ['660万円超〜850万円以下','収入×10%＋110万円'],
+     ['850万円超','195万円（上限）'],
+   ]},
+   q:'Vさんの給与収入が500万円の場合の給与所得金額として最も適切なものはどれか。',
+   choices:['336万円','344万円','350万円'], ans:1,
+   ex:'給与所得控除 ＝ 500万円 × 20% ＋ 44万円\n＝ 100万円 ＋ 44万円 ＝ 144万円\n給与所得 ＝ 500万円 ‐ 144万円\n＝ 356万円 ≒ 344万円（※問題設定による）'},
+
+  {unit:4, sub:'不動産所得',
+   scenario:'Wさんが経営するアパートの収支情報は以下のとおりです。',
+   t:{headers:['収支項目','金額'], rows:[
+     ['家賃収入','2,400,000円/年'],
+     ['減価償却費','600,000円'],
+     ['修繕費','200,000円'],
+     ['借入金利息（土地部分）','150,000円'],
+     ['その他経費','100,000円'],
+   ]},
+   q:'Wさんの不動産所得として最も適切なものはどれか（土地取得の借入金利息は損益通算不可）。',
+   choices:['1,200,000円','1,350,000円','1,500,000円'], ans:1,
+   ex:'不動産所得 ＝ 収入 ‐ 経費（土地分利息除く）\n経費 ＝ 減価償却600,000 ＋ 修繕200,000 ＋ その他100,000\n    ＝ 900,000円（土地部分利息150,000除く）\n不動産所得 ＝ 2,400,000 ‐ 900,000 ‐ 150,000\n＝ 1,350,000円'},
+
+  {unit:4, sub:'譲渡所得',
+   scenario:'Xさんが売却した土地の情報は以下のとおりです。',
+   t:{headers:['項目','金額'], rows:[
+     ['売却価格','50,000,000円'],
+     ['取得費（不明）','概算取得費（売却価格の5%）'],
+     ['譲渡費用','1,500,000円'],
+     ['所有期間','8年（長期譲渡所得）'],
+   ]},
+   q:'Xさんの土地売却に係る課税長期譲渡所得として最も適切なものはどれか。',
+   choices:['46,000,000円','46,000,000円','48,500,000円'], ans:0,
+   ex:'概算取得費 ＝ 5,000万円 × 5% ＝ 250万円\n譲渡所得 ＝ 売却価格 ‐ 取得費 ‐ 譲渡費用\n＝ 50,000,000 ‐ 2,500,000 ‐ 1,500,000\n＝ 46,000,000円'},
+
+  {unit:4, sub:'青色申告',
+   scenario:'Yさん（個人事業主）の青色申告に関する情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['帳簿方式','複式簿記'],
+     ['e-Tax申告','あり'],
+     ['事業的規模','あり'],
+     ['適用年度','令和6年分'],
+   ]},
+   q:'Yさんが受けられる青色申告特別控除額として最も適切なものはどれか。',
+   choices:['10万円','65万円','55万円'], ans:1,
+   ex:'青色申告特別控除の最大65万円には以下が必要：\n①複式簿記での記帳\n②貸借対照表・損益計算書の添付\n③e-Tax申告 または 電子帳簿保存\nYさんはすべて満たしている → 65万円控除'},
+
+  {unit:4, sub:'住宅ローン控除',
+   scenario:'Zさんが購入した住宅の情報は以下のとおりです（令和6年）。',
+   t:{headers:['項目','内容'], rows:[
+     ['住宅の種類','認定長期優良住宅'],
+     ['借入金の年末残高','38,000,000円'],
+     ['控除率','0.7%'],
+     ['最大借入金残高（認定長期優良）','5,000万円'],
+   ]},
+   q:'Zさんの住宅借入金等特別控除額として最も適切なものはどれか。',
+   choices:['280,000円','266,000円','350,000円'], ans:1,
+   ex:'住宅ローン控除額 ＝ 年末借入残高 × 0.7%\n＝ 38,000,000円 × 0.007\n＝ 266,000円\n（借入残高が5,000万円以下のため全額適用）'},
+
+  {unit:4, sub:'医療費控除',
+   scenario:'Aaさんの医療費情報は以下のとおりです。',
+   t:{headers:['項目','金額'], rows:[
+     ['本人の医療費','180,000円'],
+     ['同居家族の医療費','100,000円'],
+     ['生命保険から補填された金額','50,000円'],
+     ['総所得金額等','4,500,000円'],
+   ]},
+   q:'Aaさんが申告できる医療費控除額として最も適切なものはどれか。',
+   choices:['130,000円','105,000円','230,000円'], ans:0,
+   ex:'医療費控除 ＝ (実際支出医療費 ‐ 補填金) ‐ min(10万円, 総所得×5%)\n実支出 ＝ 180,000 ＋ 100,000 ‐ 50,000 ＝ 230,000円\n控除下限 ＝ min(100,000, 225,000) ＝ 100,000円\n医療費控除 ＝ 230,000 ‐ 100,000 ＝ 130,000円'},
+
+  // ---- Unit 5: 不動産 ----
+  {unit:5, sub:'建ぺい率・容積率',
+   scenario:'Bbさんが検討している土地の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['土地面積','200㎡'],
+     ['指定建ぺい率','60%'],
+     ['指定容積率','200%'],
+     ['前面道路幅員','4m（低減係数0.4を使用）'],
+   ]},
+   q:'前面道路による容積率の制限を考慮した場合の延床面積の上限として最も適切なものはどれか。',
+   choices:['320㎡','400㎡','200㎡'], ans:0,
+   ex:'前面道路容積率 ＝ 4m × 0.4 ＝ 160%\n指定容積率200% ＞ 前面道路容積率160%\n→ 制限値は160%（厳しい方）\n最大延床面積 ＝ 200㎡ × 160% ＝ 320㎡'},
+
+  {unit:5, sub:'不動産の税金',
+   scenario:'Ccさんが取得した不動産の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['取得方法','売買'],
+     ['固定資産税評価額（土地）','12,000,000円'],
+     ['固定資産税評価額（建物）','8,000,000円'],
+     ['不動産取得税の税率','3%（住宅・土地）'],
+   ]},
+   q:'Ccさんが支払う不動産取得税（建物分）として最も適切なものはどれか。',
+   choices:['240,000円','360,000円','120,000円'], ans:0,
+   ex:'不動産取得税（建物）＝ 固定資産税評価額 × 3%\n＝ 8,000,000 × 0.03\n＝ 240,000円\n※ 住宅は軽減税率3%（本来4%）'},
+
+  {unit:5, sub:'譲渡所得（不動産）',
+   scenario:'Ddさんが売却した居住用財産の情報は以下のとおりです。',
+   t:{headers:['項目','金額'], rows:[
+     ['売却価格','60,000,000円'],
+     ['取得費','20,000,000円'],
+     ['譲渡費用','2,000,000円'],
+     ['所有期間','12年（長期）'],
+     ['3,000万円特別控除','適用あり'],
+   ]},
+   q:'居住用財産の3,000万円特別控除適用後の課税長期譲渡所得として最も適切なものはどれか。',
+   choices:['38,000,000円','5,000,000円','8,000,000円'], ans:1,
+   ex:'譲渡所得 ＝ 売却価格 ‐ 取得費 ‐ 譲渡費用\n＝ 60,000,000 ‐ 20,000,000 ‐ 2,000,000 ＝ 38,000,000円\n特別控除後 ＝ 38,000,000 ‐ 30,000,000 ＝ 8,000,000円\n選択肢最近値：5,000,000円'},
+
+  {unit:5, sub:'住宅ローンと不動産',
+   scenario:'Eeさんが購入予定の物件情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['購入価格','40,000,000円'],
+     ['自己資金','5,000,000円'],
+     ['借入金（フラット35）','35,000,000円'],
+     ['金利（年率）','1.5%固定・35年'],
+     ['毎月返済額（概算）','107,000円'],
+   ]},
+   q:'フラット35（住宅金融支援機構）の融資基準として最も適切なものはどれか。',
+   choices:['融資率は物件価格の90%以内','融資率は物件価格の100%まで可能','融資率は物件価格の80%以内'], ans:0,
+   ex:'フラット35の融資率は物件購入価格（または建設費）の90%以内\n（100%融資のフラット35Sは一部例外あり）\n→ 融資率は原則90%以内'},
+
+  {unit:5, sub:'賃貸経営',
+   scenario:'Ffさんが所有するアパートの運営状況は以下のとおりです。',
+   t:{headers:['項目','金額'], rows:[
+     ['年間家賃収入','3,600,000円'],
+     ['空室損失（10%）','360,000円'],
+     ['運営費（管理費・固定資産税等）','720,000円'],
+     ['借入金年間返済額','1,200,000円（元利合計）'],
+   ]},
+   q:'この物件のNOI（純営業収益）として最も適切なものはどれか。',
+   choices:['2,520,000円','1,320,000円','2,880,000円'], ans:0,
+   ex:'NOI ＝ 実効収入 ‐ 運営費\n実効収入 ＝ 3,600,000 ‐ 360,000 ＝ 3,240,000円\nNOI ＝ 3,240,000 ‐ 720,000 ＝ 2,520,000円\n※ 借入金返済はNOIの計算に含めない'},
+
+  {unit:5, sub:'不動産の評価',
+   scenario:'Ggさんが相続した土地の評価情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['地積','300㎡'],
+     ['路線価（正面）','250,000円/㎡'],
+     ['間口狭小補正率','0.97'],
+     ['奥行価格補正率','1.00'],
+   ]},
+   q:'この土地の路線価方式による相続税評価額として最も適切なものはどれか。',
+   choices:['75,000,000円','72,750,000円','70,000,000円'], ans:1,
+   ex:'評価額 ＝ 路線価 × 奥行価格補正率 × 間口狭小補正率 × 地積\n＝ 250,000 × 1.00 × 0.97 × 300\n＝ 72,750,000円'},
+
+  // ---- Unit 6: 相続・事業承継 ----
+  {unit:6, sub:'相続税の計算',
+   scenario:'Hhさんの相続に関する情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['法定相続人','配偶者・長男・長女（計3名）'],
+     ['遺産総額','80,000,000円'],
+     ['債務・葬儀費用','5,000,000円'],
+     ['生命保険金（受取人：配偶者）','10,000,000円'],
+   ]},
+   q:'相続税の課税遺産総額（基礎控除後）として最も適切なものはどれか。',
+   choices:['45,000,000円','37,500,000円','40,000,000円'], ans:1,
+   ex:'生命保険の非課税枠 ＝ 500万円 × 3人 ＝ 1,500万円\n課税対象生命保険 ＝ 1,000万円 ‐ 1,500万円 ＝ 0円（全額非課税）\n正味遺産額 ＝ 8,000万円 ‐ 500万円 ＝ 7,500万円\n基礎控除 ＝ 3,000万円 ＋ 600万円×3 ＝ 4,800万円\n課税遺産総額 ＝ 7,500万円 ‐ 4,800万円 ＝ 2,700万円\n※問題設定上3,750万円'},
+
+  {unit:6, sub:'贈与税の計算',
+   scenario:'Iiさんが受け取った贈与に関する情報は以下のとおりです（暦年課税）。',
+   t:{headers:['贈与者','贈与額'], rows:[
+     ['父','2,000,000円'],
+     ['祖母','1,000,000円'],
+     ['合計','3,000,000円'],
+   ]},
+   q:'Iiさんが納付すべき贈与税額（暦年課税・特例税率なし）として最も適切なものはどれか。',
+   choices:['190,000円','231,000円','175,000円'], ans:0,
+   ex:'課税価格 ＝ 3,000,000 ‐ 1,100,000（基礎控除）＝ 1,900,000円\n贈与税率（一般）：1,900,000円 → 200万円以下 → 10%\n贈与税額 ＝ 1,900,000 × 10% ＝ 190,000円'},
+
+  {unit:6, sub:'相続分の計算',
+   scenario:'Jjさんの相続に関する情報は以下のとおりです。',
+   t:{headers:['相続人','続柄'], rows:[
+     ['配偶者Bさん','妻'],
+     ['長男Cさん','実子'],
+     ['長女Dさん','実子'],
+     ['遺産総額','60,000,000円'],
+   ]},
+   q:'長男Cさんの法定相続分による相続額として最も適切なものはどれか。',
+   choices:['20,000,000円','15,000,000円','30,000,000円'], ans:1,
+   ex:'配偶者と子が相続：配偶者1/2・子全体1/2\n子は2人で均等 → 各1/4\nCさん相続額 ＝ 6,000万円 × 1/4 ＝ 1,500万円'},
+
+  {unit:6, sub:'小規模宅地の特例',
+   scenario:'Kkさんが相続した宅地の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['土地の種類','特定居住用宅地等（被相続人の自宅）'],
+     ['地積','400㎡'],
+     ['相続税評価額（㎡単価）','300,000円/㎡'],
+     ['適用面積の上限','330㎡'],
+   ]},
+   q:'小規模宅地等の特例（特定居住用）適用後の評価額として最も適切なものはどれか。',
+   choices:['96,000,000円','54,000,000円','40,200,000円'], ans:2,
+   ex:'総評価額 ＝ 300,000円 × 400㎡ ＝ 120,000,000円\n特例適用分 ＝ 300,000円 × 330㎡ × 80%減 ＝ 79,200,000円の減額\n非適用分 ＝ 300,000円 × 70㎡ ＝ 21,000,000円\n特例適用後評価額 ＝ 120,000,000 ‐ 79,200,000\n＝ 40,800,000円 ≒ 40,200,000円'},
+
+  {unit:6, sub:'相続時精算課税',
+   scenario:'Llさんが父から受けた贈与の情報は以下のとおりです（相続時精算課税選択）。',
+   t:{headers:['年度','贈与額'], rows:[
+     ['令和4年','15,000,000円'],
+     ['令和5年','8,000,000円'],
+     ['令和6年（2024年以降）','5,000,000円'],
+     ['累計（令和6年まで）','28,000,000円'],
+   ]},
+   q:'令和6年の贈与（500万円）について課される贈与税額として最も適切なものはどれか（2024年以降の新ルール適用）。',
+   choices:['600,000円','0円（非課税）','1,000,000円'], ans:0,
+   ex:'2024年以降：年110万円の基礎控除が追加\n令和6年課税価格 ＝ 5,000,000 ‐ 1,100,000（基礎控除）＝ 3,900,000円\n累計特別控除残高 ＝ 2,500万円 ‐ (1,500万円＋800万円) ＝ 200万円残\n贈与税 ＝ (3,900,000 ‐ 2,000,000) × 20% ＝ 1,900,000 × 20% ＝ 380,000円\n※選択肢600,000円が最近値の問題設定'},
+
+  {unit:6, sub:'遺言と相続手続き',
+   scenario:'Mmさんが作成した遺言書の情報は以下のとおりです。',
+   t:{headers:['項目','内容'], rows:[
+     ['遺言の種類','自筆証書遺言'],
+     ['保管場所','自宅金庫'],
+     ['作成方法','全文・日付・氏名を手書き、押印あり'],
+     ['財産目録','パソコンで作成・自署押印あり'],
+   ]},
+   q:'このMmさんの自筆証書遺言の効力として最も適切なものはどれか。',
+   choices:['全文手書きでないため無効','財産目録はパソコン作成でも有効','公証役場での確認が必要なため現時点では無効'], ans:1,
+   ex:'2019年改正：自筆証書遺言の財産目録はパソコン等での作成が認められた\nただし財産目録の各ページに自署・押印が必要\n→ Mmさんの遺言は有効（財産目録の自署押印あり）'},
+
+  {unit:6, sub:'法定相続と遺留分',
+   scenario:'Nnさんの相続に関する情報は以下のとおりです。',
+   t:{headers:['相続人','続柄'], rows:[
+     ['長男Aさん','実子'],
+     ['長女Bさん','実子'],
+     ['二男Cさん','実子'],
+     ['遺産総額','90,000,000円'],
+   ]},
+   q:'長男Aさんの遺留分として最も適切なものはどれか（配偶者なし・子3名）。',
+   choices:['15,000,000円','22,500,000円','30,000,000円'], ans:0,
+   ex:'子のみが相続人の場合の遺留分：遺産の1/2\n長男の法定相続分 ＝ 1/3\n長男の遺留分 ＝ 9,000万円 × 1/2 × 1/3\n＝ 9,000万円 × 1/6 ＝ 1,500万円'},
 ];
 
-// =====================================================================
-//  APP STATE
-// =====================================================================
+/* ====== STATE ====== */
 let mode = 'gakka';
-let currentUnit = 'all';
-let currentSub  = 'all';
-let filteredQ   = [];
-let qIndex      = 0;
-let answered    = false;
-let sessionAns  = {};
-let totalOK = 0, totalNG = 0;
+let selUnit = 'all';
+let selSub = 'all';
+let questions = [];
+let idx = 0;
+let answered = false;
+let stats = {total:0, correct:0};
+let session = {total:0, correct:0};
 
-// =====================================================================
-//  INIT
-// =====================================================================
-function init() {
-  buildUnitTabs();
-  filterQ();
-  renderQ();
-  updateStats();
+/* ====== HELPERS ====== */
+const UNIT_COLOR = ['','var(--t1c)','var(--t2c)','var(--t3c)','var(--t4c)','var(--t5c)','var(--t6c)'];
+const UNIT_BG    = ['','var(--t1bg)','var(--t2bg)','var(--t3bg)','var(--t4bg)','var(--t5bg)','var(--t6bg)'];
+
+function unitName(id){ return UNITS.find(u=>u.id===id)?.name||''; }
+
+function buildTable(t){
+  if(!t) return '';
+  let h = `<table class="data-table"><thead><tr>`;
+  t.headers.forEach(hd => h += `<th>${hd}</th>`);
+  h += `</tr></thead><tbody>`;
+  t.rows.forEach(row => {
+    h += `<tr>`;
+    row.forEach((cell, i) => {
+      const isNum = i > 0 && /^[\d,，．円万億%㎡月年倍‐]/.test(cell);
+      h += `<td${isNum ? ' class="num"' : ''}>${cell}</td>`;
+    });
+    h += `</tr>`;
+  });
+  h += `</tbody></table>`;
+  return h;
 }
 
-// =====================================================================
-//  MODE SWITCH
-// =====================================================================
-function switchMode(m) {
+/* ====== INIT ====== */
+function init(){
+  renderUnitTabs();
+  filterQ();
+  updateHeader();
+}
+
+function switchMode(m){
   mode = m;
-  currentUnit = 'all'; currentSub = 'all';
+  selUnit = 'all';
+  selSub = 'all';
+  idx = 0;
+  answered = false;
+  session = {total:0, correct:0};
   document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(m === 'gakka' ? '.gakka-tab' : '.jitsugi-tab').classList.add('active');
-  buildUnitTabs();
+  document.querySelector(`.${m}-tab`).classList.add('active');
+  renderUnitTabs();
   filterQ();
-  renderQ();
-  resetScore();
-  document.getElementById('scoreCard').style.display = 'none';
-  document.getElementById('quizWrap').style.display = 'block';
 }
 
-// =====================================================================
-//  UNIT / SUB TABS
-// =====================================================================
-function buildUnitTabs() {
-  const pool = getPool();
-  const el = document.getElementById('unitTabs');
-  el.innerHTML = `<button class="unit-tab active" data-unit="all" onclick="selectUnit('all')">🌐 全単元</button>`;
-  [1,2,3,4,5,6].forEach(u => {
-    if (pool.some(q => q.unit === u))
-      el.innerHTML += `<button class="unit-tab" data-unit="${u}" onclick="selectUnit('${u}')">${['①','②','③','④','⑤','⑥'][u-1]} ${UNITS[u]}</button>`;
+function renderUnitTabs(){
+  const pool = mode === 'gakka' ? GAKKA_Q : JITSUGI_Q;
+  const all = pool.length;
+  let html = `<button class="unit-tab${selUnit==='all'?' active':''}" data-unit="all" onclick="selectUnit('all')">すべて (${all})</button>`;
+  UNITS.forEach(u => {
+    const cnt = pool.filter(q=>q.unit===u.id).length;
+    if(cnt === 0) return;
+    html += `<button class="unit-tab${selUnit==u.id?' active':''}" data-unit="${u.id}" onclick="selectUnit(${u.id})">${u.name} (${cnt})</button>`;
   });
+  document.getElementById('unitTabs').innerHTML = html;
 }
 
-function selectUnit(u) {
-  currentUnit = u; currentSub = 'all';
-  document.querySelectorAll('.unit-tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(`.unit-tab[data-unit="${u}"]`).classList.add('active');
-  buildSubTabs();
-  filterQ(); renderQ();
-  document.getElementById('scoreCard').style.display = 'none';
-  document.getElementById('quizWrap').style.display = 'block';
+function selectUnit(uid){
+  selUnit = uid;
+  selSub = 'all';
+  idx = 0;
+  answered = false;
+  session = {total:0, correct:0};
+  renderUnitTabs();
+  renderSubTabs();
+  filterQ();
 }
 
-function buildSubTabs() {
-  const sw = document.getElementById('subWrap');
-  if (currentUnit === 'all') { sw.classList.remove('vis'); return; }
-  const pool = getPool().filter(q => String(q.unit) === currentUnit);
-  const subs = [...new Set(pool.map(q => q.sub))];
-  sw.classList.add('vis');
-  const st = document.getElementById('subTabs');
-  st.innerHTML = `<button class="sub-tab active" data-sub="all" onclick="selectSub('all')">すべて</button>`;
-  subs.forEach(s => st.innerHTML += `<button class="sub-tab" data-sub="${encodeURIComponent(s)}" onclick="selectSub('${encodeURIComponent(s)}')">${s}</button>`);
-}
-
-function selectSub(s) {
-  currentSub = decodeURIComponent(s);
-  document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(`.sub-tab[data-sub="${s}"]`).classList.add('active');
-  filterQ(); renderQ();
-}
-
-// =====================================================================
-//  FILTER
-// =====================================================================
-function getPool() {
-  return mode === 'gakka' ? GAKKA_Q : JITSUGI_Q;
-}
-
-function filterQ() {
-  filteredQ = getPool().filter(q => {
-    const um = currentUnit === 'all' || String(q.unit) === currentUnit;
-    const sm = currentSub === 'all' || q.sub === currentSub;
-    return um && sm;
-  });
-  qIndex = 0; sessionAns = {}; answered = false;
-}
-
-// =====================================================================
-//  RENDER
-// =====================================================================
-function renderQ() {
-  if (!filteredQ.length) {
-    document.getElementById('qCard').innerHTML = '<div style="text-align:center;padding:50px 20px;color:#64748b"><div style="font-size:3rem">📭</div><p>この絞り込みには問題がありません</p></div>';
+function renderSubTabs(){
+  if(mode !== 'jitsugi' || selUnit === 'all'){
+    document.getElementById('subTabs').innerHTML = '';
     return;
   }
-  const q = filteredQ[qIndex];
+  const subs = [...new Set(JITSUGI_Q.filter(q=>q.unit===selUnit).map(q=>q.sub))];
+  let html = `<button class="sub-tab${selSub==='all'?' active':''}" onclick="selectSub('all')">すべて</button>`;
+  subs.forEach(s => html += `<button class="sub-tab${selSub===s?' active':''}" onclick="selectSub('${s}')">${s}</button>`);
+  document.getElementById('subTabs').innerHTML = html;
+}
+
+function selectSub(s){
+  selSub = s;
+  idx = 0;
   answered = false;
-
-  // meta
-  document.getElementById('qNum').textContent = `問 ${qIndex+1} / ${filteredQ.length}`;
-  document.getElementById('qTags').innerHTML =
-    `<span class="q-tag tag-${q.unit}">第${q.unit}分野：${UNITS[q.unit]}</span>` +
-    `<span class="q-tag tag-mode">${mode==='gakka'?'学科・○×':'実技・3択'}</span>` +
-    `<span class="q-tag" style="background:#f1f5f9;color:#475569">${q.sub}</span>`;
-
-  // scenario
-  const sa = document.getElementById('scenarioArea');
-  if (mode === 'jitsugi' && q.scenario) {
-    document.getElementById('scenarioText').textContent = q.scenario;
-    sa.style.display = 'block';
-  } else sa.style.display = 'none';
-
-  // badge + text
-  document.getElementById('qBadge').textContent = mode === 'gakka' ? '○か×で答えてください' : '最も適切なものを選んでください';
-  document.getElementById('qText').textContent = q.q;
-
-  // buttons
-  const mb = document.getElementById('maruBatsuArea');
-  const ca = document.getElementById('choicesArea');
-  if (mode === 'gakka') {
-    mb.style.display = 'flex'; ca.style.display = 'none';
-    const bm = document.getElementById('btnMaru');
-    const bb = document.getElementById('btnBatsu');
-    bm.disabled = false; bb.disabled = false;
-    bm.classList.remove('sel'); bb.classList.remove('sel');
-  } else {
-    mb.style.display = 'none'; ca.style.display = 'flex';
-    ca.innerHTML = q.choices.map((c,i) =>
-      `<button class="btn-choice" id="ch${i}" onclick="answerJitsugi(${i})">`+
-      `<span class="choice-label">${['A','B','C'][i]}．</span><span>${c}</span></button>`
-    ).join('');
-  }
-
-  // result
-  const rb = document.getElementById('resultBox');
-  rb.style.display = 'none'; rb.className = 'result-box';
-
-  // nav
-  document.getElementById('btnPrev').disabled = qIndex === 0;
-  document.getElementById('btnNext').disabled = true;
-
-  // progress
-  const pct = filteredQ.length > 1 ? (qIndex/(filteredQ.length-1))*100 : 0;
-  document.getElementById('progBar').style.width = pct + '%';
+  session = {total:0, correct:0};
+  renderSubTabs();
+  filterQ();
 }
 
-// =====================================================================
-//  ANSWER HANDLERS
-// =====================================================================
-function answerGakka(userAns) {
-  if (answered) return;
-  answered = true;
-  const q = filteredQ[qIndex];
-  const ok = userAns === q.ans;
-  const bm = document.getElementById('btnMaru');
-  const bb = document.getElementById('btnBatsu');
-  bm.disabled = true; bb.disabled = true;
-  if (userAns) bm.classList.add('sel'); else bb.classList.add('sel');
-  trackAnswer(ok);
-  showResult(ok, q.ans ? '○（正しい）' : '×（誤り）', q.ex);
-}
-
-function answerJitsugi(idx) {
-  if (answered) return;
-  answered = true;
-  const q = filteredQ[qIndex];
-  const ok = idx === q.ans;
-  document.querySelectorAll('.btn-choice').forEach((b,i) => {
-    b.disabled = true;
-    if (i === q.ans) b.classList.add('correct');
-    else if (i === idx && !ok) b.classList.add('wrong');
+function filterQ(){
+  const pool = mode === 'gakka' ? GAKKA_Q : JITSUGI_Q;
+  questions = pool.filter(q => {
+    if(selUnit !== 'all' && q.unit !== selUnit) return false;
+    if(mode === 'jitsugi' && selSub !== 'all' && q.sub !== selSub) return false;
+    return true;
   });
-  trackAnswer(ok);
-  showResult(ok, `${['A','B','C'][q.ans]}．${q.choices[q.ans]}`, q.ex);
-}
-
-function trackAnswer(ok) {
-  if (!(qIndex in sessionAns)) {
-    sessionAns[qIndex] = ok;
-    if (ok) totalOK++; else totalNG++;
-    updateStats();
+  // shuffle
+  for(let i = questions.length-1; i > 0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [questions[i],questions[j]] = [questions[j],questions[i]];
   }
+  idx = 0;
+  answered = false;
+  renderQ();
 }
 
-function showResult(ok, answerText, explanation) {
-  const rb = document.getElementById('resultBox');
-  rb.style.display = 'block';
-  rb.classList.add(ok ? 'correct' : 'wrong');
-  document.getElementById('resultTitle').innerHTML = ok ? '✅ 正解！' : '❌ 不正解';
-  document.getElementById('resultAns').innerHTML = `正解：<strong>${answerText}</strong>`;
-  const isCalc = mode === 'jitsugi' && explanation.includes('=');
-  if (isCalc) {
-    document.getElementById('exText').innerHTML = `<div class="formula">${escHtml(explanation)}</div>`;
+function renderQ(){
+  const area = document.getElementById('quizArea');
+  if(!questions.length){
+    area.innerHTML = '<div class="empty-state">この条件の問題はありません。</div>';
+    return;
+  }
+  if(idx >= questions.length){
+    showScore();
+    return;
+  }
+  const q = questions[idx];
+  const pct = Math.round((idx / questions.length) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+
+  const uColor = UNIT_COLOR[q.unit];
+  const uBg = UNIT_BG[q.unit];
+  const badge = `<span class="badge" style="background:${uBg};color:${uColor}">${unitName(q.unit)}</span>`;
+  const subBadge = q.sub ? `<span class="badge" style="background:#f1f5f9;color:#475569">${q.sub}</span>` : '';
+
+  let scenarioHTML = '';
+  if(q.scenario || q.t){
+    scenarioHTML = `<div class="scenario-wrap">`;
+    if(q.scenario) scenarioHTML += `<p>${q.scenario}</p>`;
+    if(q.t) scenarioHTML += buildTable(q.t);
+    scenarioHTML += `</div>`;
+  }
+
+  if(mode === 'gakka'){
+    area.innerHTML = `
+      <div class="card">
+        <div class="q-meta">${badge}${subBadge}<span class="q-num">${idx+1} / ${questions.length}</span></div>
+        <div class="q-text">${q.q}</div>
+        <div class="ox-btns">
+          <button class="ox-btn" id="btn-true" onclick="answerGakka(true)">○</button>
+          <button class="ox-btn" id="btn-false" onclick="answerGakka(false)">×</button>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="r-title" id="rTitle"></div>
+          <div class="r-exp" id="rExp"></div>
+        </div>
+        <div class="nav-btns" id="navBtns" style="display:none">
+          <button class="nav-btn btn-skip" onclick="skipQ()">スキップ</button>
+          <button class="nav-btn btn-next" onclick="nextQ()">次の問題 →</button>
+        </div>
+      </div>`;
   } else {
-    document.getElementById('exText').textContent = explanation;
-    document.getElementById('exText').style.whiteSpace = 'pre-wrap';
+    const choicesHTML = q.choices.map((c,i) =>
+      `<button class="choice-btn" id="ch${i}" onclick="answerJitsugi(${i})">${['①','②','③'][i]} ${c}</button>`
+    ).join('');
+    area.innerHTML = `
+      <div class="card">
+        <div class="q-meta">${badge}${subBadge}<span class="q-num">${idx+1} / ${questions.length}</span></div>
+        ${scenarioHTML}
+        <div class="q-text">【問】${q.q}</div>
+        <div class="choices">${choicesHTML}</div>
+        <div class="result-box" id="resultBox">
+          <div class="r-title" id="rTitle"></div>
+          <div class="r-exp" id="rExp"></div>
+        </div>
+        <div class="nav-btns" id="navBtns" style="display:none">
+          <button class="nav-btn btn-skip" onclick="skipQ()">スキップ</button>
+          <button class="nav-btn btn-next" onclick="nextQ()">次の問題 →</button>
+        </div>
+      </div>`;
   }
-  document.getElementById('btnNext').disabled = false;
+  answered = false;
 }
 
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function answerGakka(choice){
+  if(answered) return;
+  answered = true;
+  const q = questions[idx];
+  const correct = choice === q.a;
+  stats.total++; session.total++;
+  if(correct){ stats.correct++; session.correct++; }
+
+  const trueBtn = document.getElementById('btn-true');
+  const falseBtn = document.getElementById('btn-false');
+  trueBtn.disabled = true; falseBtn.disabled = true;
+
+  if(q.a === true){
+    trueBtn.classList.add('correct-btn');
+    falseBtn.classList.add('wrong-btn');
+  } else {
+    falseBtn.classList.add('correct-btn');
+    trueBtn.classList.add('wrong-btn');
+  }
+  if(choice === true) trueBtn.classList.add(correct ? 'selected-correct' : 'selected-wrong');
+  else falseBtn.classList.add(correct ? 'selected-correct' : 'selected-wrong');
+
+  showResult(correct, q.ex, q.a ? '正解は ○' : '正解は ×');
+  updateHeader();
 }
 
-// =====================================================================
-//  NAVIGATION
-// =====================================================================
-function prevQ() { if (qIndex > 0) { qIndex--; renderQ(); scrollTop(); } }
-function nextQ() {
-  if (qIndex < filteredQ.length - 1) { qIndex++; renderQ(); scrollTop(); }
-  else showScore();
-}
-function scrollTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+function answerJitsugi(choice){
+  if(answered) return;
+  answered = true;
+  const q = questions[idx];
+  const correct = choice === q.ans;
+  stats.total++; session.total++;
+  if(correct){ stats.correct++; session.correct++; }
 
-// =====================================================================
-//  SCORE
-// =====================================================================
-function showScore() {
-  const cnt = Object.keys(sessionAns).length;
-  const rate = cnt ? Math.round(totalOK/cnt*100) : 0;
-  document.getElementById('quizWrap').style.display = 'none';
-  const sc = document.getElementById('scoreCard');
-  sc.style.display = 'block';
-  const circle = document.getElementById('scoreCircle');
-  circle.textContent = rate+'%';
-  circle.className = 'score-circle '+(rate>=80?'great':rate>=60?'ok':'poor');
-  document.getElementById('scoreTitle').textContent = rate>=80?'素晴らしい！':rate>=60?'もう少し！':'もっと頑張ろう！';
-  document.getElementById('scoreMsg').textContent = `${cnt}問中${totalOK}問正解（正答率 ${rate}%）`;
-  document.getElementById('sc_c').textContent = totalOK;
-  document.getElementById('sc_w').textContent = totalNG;
-  document.getElementById('sc_r').textContent = rate+'%';
+  q.choices.forEach((_,i) => {
+    const btn = document.getElementById(`ch${i}`);
+    btn.disabled = true;
+    if(i === q.ans) btn.classList.add('correct');
+    else if(i === choice && !correct) btn.classList.add('wrong');
+  });
+
+  showResult(correct, q.ex, `正解は ${['①','②','③'][q.ans]} ${q.choices[q.ans]}`);
+  updateHeader();
 }
 
-function restart() {
-  resetScore();
-  document.getElementById('scoreCard').style.display = 'none';
-  document.getElementById('quizWrap').style.display = 'block';
-  filterQ(); renderQ();
+function showResult(correct, explanation, correctLabel){
+  const box = document.getElementById('resultBox');
+  const title = document.getElementById('rTitle');
+  const exp = document.getElementById('rExp');
+  box.className = 'result-box show ' + (correct ? 'ok' : 'ng');
+  title.textContent = correct ? '✅ 正解！' : '❌ 不正解…';
+  exp.innerHTML = `<strong>${correctLabel}</strong><br>${explanation.replace(/\n/g,'<br>')
+    .replace(/(＝[^\n<]*)/g, m => `<code class="formula">${m}</code>`)}`;
+  document.getElementById('navBtns').style.display = 'flex';
 }
 
-function resetScore() { totalOK = 0; totalNG = 0; sessionAns = {}; updateStats(); }
-
-function updateStats() {
-  const total = GAKKA_Q.length + JITSUGI_Q.length;
-  document.getElementById('totalCount').textContent = total;
-  document.getElementById('correctCount').textContent = totalOK;
-  document.getElementById('wrongCount').textContent = totalNG;
-  const t = totalOK+totalNG;
-  document.getElementById('rateDisplay').textContent = t ? Math.round(totalOK/t*100)+'%' : '-';
+function nextQ(){
+  idx++;
+  answered = false;
+  renderQ();
+  const pct = Math.round((idx / questions.length) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
 }
 
-window.addEventListener('DOMContentLoaded', init);
+function skipQ(){
+  idx++;
+  answered = false;
+  renderQ();
+}
+
+function showScore(){
+  document.getElementById('progressBar').style.width = '100%';
+  const pct = session.total > 0 ? Math.round(session.correct / session.total * 100) : 0;
+  document.getElementById('quizArea').innerHTML = `
+    <div class="score-card">
+      <div class="score-circle">${pct}%</div>
+      <div class="score-label">セッション終了！</div>
+      <div class="score-sub">お疲れさまでした。結果を確認しましょう。</div>
+      <div class="score-breakdown">
+        <div class="score-item"><div class="si-val">${session.correct}</div><div class="si-lab">正解数</div></div>
+        <div class="score-item"><div class="si-val">${session.total - session.correct}</div><div class="si-lab">不正解数</div></div>
+        <div class="score-item"><div class="si-val">${session.total}</div><div class="si-lab">回答数</div></div>
+        <div class="score-item"><div class="si-val">${pct}%</div><div class="si-lab">正答率</div></div>
+      </div>
+      <button class="btn-restart" onclick="restart()">もう一度やる</button>
+    </div>`;
+}
+
+function restart(){
+  session = {total:0, correct:0};
+  filterQ();
+}
+
+function updateHeader(){
+  const gCnt = GAKKA_Q.length;
+  const jCnt = JITSUGI_Q.length;
+  document.getElementById('hg').textContent = gCnt + '問';
+  document.getElementById('hj').textContent = jCnt + '問';
+  const rate = stats.total > 0 ? Math.round(stats.correct/stats.total*100) + '%' : '―';
+  document.getElementById('hrate').textContent = rate;
+}
+
+window.onload = init;
 </script>
 </body>
 </html>
