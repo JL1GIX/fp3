@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FP3級 過去問集</title>
+<title>FP3級 過去問道場 🌿</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -196,10 +196,11 @@ footer{text-align:center;padding:20px;font-size:.75rem;color:var(--gray);backgro
   <div class="hdr">
     <a class="logo" href="#" onclick="goHome();return false;">
       <span class="logo-badge">FP3</span>
-      <span class="logo-title">過去問集</span>
+      <span class="logo-title">過去問道場 <em>🌿</em></span>
     </a>
     <nav>
-
+      <button id="nav-g" class="active" onclick="showMode('gakka')">学科</button>
+      <button id="nav-j" onclick="showMode('jitsugi')">実技</button>
     </nav>
   </div>
 </header>
@@ -213,11 +214,12 @@ footer{text-align:center;padding:20px;font-size:.75rem;color:var(--gray);backgro
 <!-- ========== HOME ========== -->
 <div id="view-home">
   <div class="hero">
-    <h1>FP3級 過去問集</h1>
+    <h1>🌿 FP3級 過去問道場</h1>
+    <p>PDF教材から直接作成 · 広告なし · 完全無料</p>
     <div class="hero-stats">
       <div class="hero-stat"><span class="n">300問</span><span class="l">学科問題</span></div>
       <div class="hero-stat"><span class="n">100問</span><span class="l">実技問題</span></div>
-      <div class="hero-stat"><span class="n">5回分</span><span class="l">過去問</span></div>
+      <div class="hero-stat"><span class="n">5回分</span><span class="l">最新過去問</span></div>
     </div>
   </div>
 
@@ -329,7 +331,7 @@ footer{text-align:center;padding:20px;font-size:.75rem;color:var(--gray);backgro
 </main>
 
 <footer>
-  <p>FP3級 過去問集 | データ出典：FP3級過去問PDF（日本FP協会）</p>
+  <p>FP3級 過去問道場 🌿 | データ出典：FP3級過去問PDF（日本FP協会）| 広告なし · 快適学習</p>
 </footer>
 
 <script>
@@ -380,6 +382,8 @@ function showView(id) {
 
 function showMode(mode) {
   curMode = mode;
+  document.getElementById('nav-g').classList.toggle('active', mode === 'gakka');
+  document.getElementById('nav-j').classList.toggle('active', mode === 'jitsugi');
 }
 
 function goHome() {
@@ -624,8 +628,29 @@ function showResult() {
   else if (typeof h.userAns === 'number') yoursStr = (h.userAns + 1) + '';
   document.getElementById('res-yours').textContent = `あなた：${yoursStr}`;
 
-  // No explanation data (PDFs only have questions/answers, not explanations)
-  document.getElementById('ex-box').classList.add('hidden');
+  // Show explanation: correct choice text (or answer_text for open questions)
+  const exBox = document.getElementById('ex-box');
+  const exText = document.getElementById('ex-text');
+  let explHtml = '';
+  if (q.type === 'multi' || q.type === 'multi4') {
+    const correctChoice = q.choices[q.answer];
+    if (correctChoice) {
+      const num = q.answer + 1;
+      explHtml = `<p><strong>正解の選択肢（${num}番）：</strong></p><p>${correctChoice}</p>`;
+    }
+  } else if (q.type === 'trueFalse') {
+    // For true/false, show the full statement with mark
+    const mark = q.answer ? '○（正しい記述です）' : '×（誤りの記述です）';
+    explHtml = `<p>${mark}</p>`;
+  } else if (q.answer_text) {
+    explHtml = `<p><strong>正解：</strong>${q.answer_text}</p>`;
+  }
+  if (explHtml) {
+    exText.innerHTML = explHtml;
+    exBox.classList.remove('hidden');
+  } else {
+    exBox.classList.add('hidden');
+  }
   document.getElementById('res-bunya').innerHTML = '';
 
   // Next button
