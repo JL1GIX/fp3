@@ -638,8 +638,8 @@ function showResult() {
       const num = q.answer + 1;
       explHtml = `<p><strong>正解の選択肢（${num}番）：</strong></p><p>${correctChoice}</p>`;
     }
-  } else if (q.type === 'trueFalse') {
-    // For true/false, show the full statement with mark
+  } else if (q.type === 'ox') {
+    // For ○/× questions, confirm the correct answer
     const mark = q.answer ? '○（正しい記述です）' : '×（誤りの記述です）';
     explHtml = `<p>${mark}</p>`;
   } else if (q.answer_text) {
